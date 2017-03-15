@@ -2,19 +2,19 @@
 import { NgModule } from '@angular/core';
 
 // This Module's Components
-import { ServiceBackendComponent } from './service-backend.component';
+import { DescriptionComponent } from './description.component';
 
 @NgModule({
     imports: [
 
     ],
     declarations: [
-        ServiceBackendComponent,
+        DescriptionComponent,
     ],
     exports: [
-        ServiceBackendComponent,
+        DescriptionComponent,
     ]
 })
-export class ServiceBackendModule {
+export class DescriptionModule {
 
 }

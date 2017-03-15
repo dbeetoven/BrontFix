@@ -2,19 +2,19 @@
 import { NgModule } from '@angular/core';
 
 // This Module's Components
-import { ServiceLoginComponent } from './service-login.component';
+import { HeaderComponent } from './header.component';
 
 @NgModule({
     imports: [
 
     ],
     declarations: [
-        ServiceLoginComponent,
+        HeaderComponent,
     ],
     exports: [
-        ServiceLoginComponent,
+        HeaderComponent,
     ]
 })
-export class ServiceLoginModule {
+export class HeaderModule {
 
 }
