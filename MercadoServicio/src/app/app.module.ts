@@ -1,31 +1,35 @@
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
+import { AngularFireModule } from 'angularfire2';
 import { BrowserModule } from '@angular/platform-browser';
-import { CarouselComponent } from './carousel/carousel.component';
+import {ContentComponent} from './main/content/content.component';
 import { FormsModule } from '@angular/forms';
-import { HeaderComponent } from './header/header.component';
 import { HttpModule } from '@angular/http';
-import { LoginComponent } from './login/login.component';
-import { MainComponent } from './main/main.component';
+import {MainModule} from './main/main.module';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+export const firebaseConfig = {
+    apiKey: 'AIzaSyDC3ijkLJzXTLlTLM3nWmqRsYxusjTVgVc',
+    authDomain: 'mercadoservicio-a83f6.firebaseapp.com',
+    databaseURL: 'https://mercadoservicio-a83f6.firebaseio.com',
+    projectId: 'mercadoservicio-a83f6',
+    storageBucket: 'mercadoservicio-a83f6.appspot.com',
+    messagingSenderId: '242315262698'
+};
+
+
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    MainComponent,
-    CarouselComponent,
-    HeaderComponent
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule,
-     NgbModule.forRoot()// Bootstrap module
+    MainModule,
+   NgbModule.forRoot(),
+   AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ContentComponent]
 })
 export class AppModule { }

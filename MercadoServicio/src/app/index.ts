@@ -1,2 +1,2 @@
-export * from './app.component';
+// tslint:disable-next-line:eofline
 export * from './app.module';
