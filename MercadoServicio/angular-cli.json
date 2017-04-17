@@ -19,7 +19,8 @@
       "prefix": "ms",
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.css",
-        "styles.css"
+        "../node_modules/font-awesome/css/font-awesome.css",
+        "styles/app.scss"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",
@@ -54,7 +55,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
+    "styleExt": "scss",
     "prefixInterfaces": false,
     "inline": {
       "style": false,

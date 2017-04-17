@@ -1,0 +1,27 @@
+<div class="login-page">
+    <div class="row">
+        <div class="col-md-4 push-md-4">
+            <img class="user-avatar" src="assets/images/SB-admin.png" width="150px" />
+            <h1>Mercado Servicios</h1>
+            <form role="form" (submit)=" onSubmit($event,name.value,password.value)" >
+                <div class="form-content">
+                    <div class="form-group">
+                        <input #name type="text" class="form-control input-underline input-lg" id="name" placeholder="Full Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email"  class="form-control input-underline input-lg"  placeholder="Email">
+                    </div>
+
+                    <div class="form-group">
+                        <input  #password type="password" class="form-control input-underline input-lg" id="password" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
+                    </div>
+                </div>
+                <a class="btn rounded-btn" (click)="onSubmit()"> Register </a>&nbsp;
+                <a class="btn rounded-btn" [routerLink]="['/login']"> Log in </a>
+            </form>
+        </div>
+    </div>
+</div>

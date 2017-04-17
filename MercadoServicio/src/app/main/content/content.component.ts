@@ -24,5 +24,3 @@ promise
   }
 
 }
-// <ms-topnav></ms-topnav>
-//     <router-outlet></router-outlet>

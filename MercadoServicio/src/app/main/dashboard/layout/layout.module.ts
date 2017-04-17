@@ -6,14 +6,17 @@ import { NgModule } from '@angular/core';
 
 const routes: Routes = [
   {
-    path: 'dashboard',
-    component: LayoutComponent
+    path: '',
+    component: LayoutComponent,
   }
 ];
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
+  ],
+  exports: [
+    LayoutComponent
   ],
   declarations: [LayoutComponent]
 })
