@@ -9,8 +9,11 @@
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
             </form>
             <ul class="navbar-nav ml-auto mt-2 mt-md-0">
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="(firebaseService.af.auth | async)">
                     <a href="" class="nav-link btn mt-1" role="button" [routerLink]="['signup']" style="padding: .375rem 1rem !important; border-color: #999;">Registrar</a>
+                </li> &nbsp;
+                <li class="nav-item" *ngIf="(firebaseService.af.auth | async)">
+                    <a href="" class="nav-link btn mt-1" role="button" (click)="logout()" style="padding: .375rem 1rem !important; border-color: #999;">Logout</a>
                 </li> &nbsp;
                 <li class="nav-item">
                     <a href="javascript:void(0)" class="nav-link mt-1" style="padding: 0.375rem 1rem !important; border-color: #999;" (click)="rltAndLtr()">RTL/LTR</a>
@@ -60,7 +63,7 @@
                     </ul>
                 </li>
                 <div class="nav-item dropdown" ngbDropdown>
-                    <a href="javascript:void(0)" [routerLink]="['login']" class="nav-link" ngbDropdownToggle >
+                    <a *ngIf="(firebaseService.af.auth | async)" [routerLink]="['login']" class="nav-link" ngbDropdownToggle >
                         <i class="fa fa-user"></i> Sign In <b class="caret"></b>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
@@ -74,6 +77,7 @@
         </div>
     </nav>
 </div>
+<br>
 
 <!--<nav class="navbar navbar-toggleable-md fixed-top navbar-light bg-faded">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" 

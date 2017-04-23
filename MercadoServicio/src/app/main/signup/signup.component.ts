@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AngularFire } from 'angularfire2';
+import { EmailPasswordCredentials } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 
 @Component({
