@@ -1,0 +1,8 @@
+ <div class="container" *ngIf="cargarPerfil; then cargar else editarPerfil"></div>
+ <ng-template #cargar>
+   <ms-cargar></ms-cargar>
+ </ng-template>
+
+ <ng-template #editarPerfil>
+   <ms-editar></ms-editar>
+ </ng-template>

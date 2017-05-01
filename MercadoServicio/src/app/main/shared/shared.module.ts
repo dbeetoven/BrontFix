@@ -2,6 +2,7 @@ import { } from '@angular/router/';
 
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from '../home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -13,7 +14,7 @@ import { TopnavComponent } from './topnav/topnav.component';
     CommonModule,
     RouterModule
   ],
-  exports : [TopnavComponent,FooterComponent,SidebarComponent],
-  declarations: [TopnavComponent, FooterComponent, SidebarComponent]
+  exports : [TopnavComponent,FooterComponent,SidebarComponent,HeaderComponent],
+  declarations: [TopnavComponent, FooterComponent, SidebarComponent,HeaderComponent]
 })
 export class SharedModule { }

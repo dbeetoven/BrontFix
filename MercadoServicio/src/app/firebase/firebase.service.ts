@@ -2,17 +2,24 @@ import { AngularFire, AuthMethods, AuthProviders, FirebaseListObservable } from 
 
 import { FirebaseObjectObservable } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
+import { Params } from '@angular/router';
 
 @Injectable()
 export class FirebaseService {
-  public dbUsuario: FirebaseObjectObservable<any[]>;
-  public users: FirebaseListObservable<any>;
+  public usuario: FirebaseObjectObservable<any[]>;
+  public usuarios: FirebaseListObservable<any>;
   public nombre: string;
   public email: string;
   public password: string;
- 
+  public id:any;
+
   constructor(public af:AngularFire) {
-    this.dbUsuario = this.af.database.object('dbUsuario');
+    const servicios$: FirebaseListObservable <any> = af.database.list('messages');
+
+          servicios$.subscribe(
+            val => console.log(val)
+          );
+  
   }
   
   
@@ -64,11 +71,66 @@ loginWithEmail(){
   }
 
   /**
-   * Logs out the current user
+   * @method logout()
+   * @param firebase User
    */
   logout() {
     return this.af.auth.logout();
   }
+
+  /**
+   * @method buscar()
+   */
+
+  guadarUsuario(Usuario){
+     this.usuario= this.af.database.object('DataObject/Usuarios/'+Usuario.nombre) as FirebaseObjectObservable<Usuario[]>
+     return this.usuario.set(Usuario).then(()=>
+       console.log(Usuario),
+    ) ;
+
+   }
+
+  buscar(usuario){
+    this.usuario= this.af.database.object('DataObject/Usuarios') as FirebaseObjectObservable<Usuario>
+    console.log(this.usuario);
+    return this.usuario;
+  }
+
+  getAllUsuario(){
+  this.usuarios=this.af.database.list('DataObject/Usuarios')as FirebaseListObservable<Usuario[]>
+  console.log(this.usuarios);
+  return this.usuarios;
+  }
+}
+
+// Interface Datos  Usuario
+interface Usuario{
+  $key?: String;
+  nombre?: String;
+  apellido?: String;
+  direccion?: {
+        calle?: string; // required
+        codigoPostal?: string;
+        numero?:number;
+    }
+  fechaNacimiento?: Date;
+  correos?: String[];
+  profesiones?: String[];
+  Telefono?:{
+      casa?:{numero?:number;}
+       mobil?:{numero?:number;}
+        oficina?:{numero?:number;}
+  }
+  tipo?: String;
+  descripcion?: String;
+  rating?: String;
+  vigente?: Boolean;
+  fechaServivios?:any[];
+  fechaDeAlta?:Date;
+  fechaDeBaja?: Date;
+  Servicios?: any[];
+
+
 }
 
 

@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-@import "bootstrap/bootstrap";
-@import "spinner";
-@import "utils";
-@import "rtl";
-@import "responsive";
+ @import "../../node_modules/bootstrap/scss/bootstrap";
+//  @import "../node_modules/bootstrap/scss/bootstrap-flex.scss";
+//  @import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+// @import "bootstrap/bootstrap";
+ @import "spinner"; // Loading index
+ @import "utils";
+ @import "rtl";
+ @import "responsive";
+

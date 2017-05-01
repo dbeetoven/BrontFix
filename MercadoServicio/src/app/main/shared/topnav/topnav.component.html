@@ -4,23 +4,20 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" [routerLink]="['']">Mercado Servicios</a>
+       
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <form class="form-inline my-2 my-lg-0" (click)="buscar(params)">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" #params (keyup)="buscarAll()" name="params">
+               <i class="fa fa-search" aria-hidden="true" (click)="buscar(params)"></i> <b class="caret"></b><span class="sr-only">(current)</span>
             </form>
-            <ul class="navbar-nav ml-auto mt-2 mt-md-0">
-                <li class="nav-item" *ngIf="(firebaseService.af.auth | async)">
-                    <a href="" class="nav-link btn mt-1" role="button" [routerLink]="['signup']" style="padding: .375rem 1rem !important; border-color: #999;">Registrar</a>
+
+            <ul class="navbar-nav ml-auto mt-2 mt-md-0" >
+                <li class="nav-item" *ngIf="isLoggedIn;else login">
+                    <a href="#" class="nav-link mt-1" style="pbuscaring: 0.375rem 1rem !important; border-color: #999;" (click)="rltAndLtr()">RTL/LTR</a>
                 </li> &nbsp;
-                <li class="nav-item" *ngIf="(firebaseService.af.auth | async)">
-                    <a href="" class="nav-link btn mt-1" role="button" (click)="logout()" style="padding: .375rem 1rem !important; border-color: #999;">Logout</a>
-                </li> &nbsp;
-                <li class="nav-item">
-                    <a href="javascript:void(0)" class="nav-link mt-1" style="padding: 0.375rem 1rem !important; border-color: #999;" (click)="rltAndLtr()">RTL/LTR</a>
-                </li> &nbsp;
-                <li class="dropdown nav-item" ngbDropdown>
-                    <!-- <div class="dropdown"> -->
-                    <a class="nav-link" href="javascript:void(0)" ngbDropdownToggle>
+                <!--<li class="dropdown nav-item" >-->
+                <li class="nav-item dropdown " *ngIf="isLoggedIn;else login">
+                    <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown">
                         <i class="fa fa-envelope"></i> <b class="caret"></b><span class="sr-only">(current)</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right messages">
@@ -50,61 +47,63 @@
                         </li>
                     </ul>
                 </li>
-                <li ngbDropdown class="nav-item dropdown">
-                    <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+                <li  class="nav-item dropdown" >
+                    <a href="#" class="nav-link dropdownToggle" data-toggle="dropdown">
                         <i class="fa fa-bell"></i> <b class="caret"></b><span class="sr-only">(current)</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        <a href="javascript:void(0)" class="dropdown-item">Pending Task <span class="badge badge-info">6</span></a>
-                        <a href="javascript:void(0)" class="dropdown-item">In queue <span class="badge badge-info"> 13</span></a>
-                        <a href="javascript:void(0)" class="dropdown-item">Mail <span class="badge badge-info"> 45</span></a>
+                        <a href="#" class="dropdown-item">Pending Task <span class="badge badge-info">6</span></a>
+                        <a href="#" class="dropdown-item">In queue <span class="badge badge-info"> 13</span></a>
+                        <a href="#" class="dropdown-item">Mail <span class="badge badge-info"> 45</span></a>
                         <li class="dropdown-divider"></li>
-                        <a href="javascript:void(0)" class="dropdown-item">View All</a>
+                        <a href="#" class="dropdown-item">View All</a>
                     </ul>
                 </li>
-                <div class="nav-item dropdown" ngbDropdown>
-                    <a *ngIf="(firebaseService.af.auth | async)" [routerLink]="['login']" class="nav-link" ngbDropdownToggle >
-                        <i class="fa fa-user"></i> Sign In <b class="caret"></b>
+                <div class="nav-item dropdown" *ngIf="isLoggedIn; then userMenu else login"></div>
+                    <ng-template #userMenu>
+                         <a class="nav-link dropdownToggle" data-toggle="dropdown" >
+                        <i class="fa fa-user"></i> {{name}}<b class="caret"></b>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="jvascript:void(0)"><i class="fa fa-fw fa-user"></i> Profile</a>
                         <a class="dropdown-item" href="jvascript:void(0)"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
                         <a class="dropdown-item" href="jvascript:void(0)"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                        <a class="dropdown-item"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        <a class="dropdown-item" (click)="logout()"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                     </div>
-                </div>
+                    </ng-template>
+                    
+                    <ng-template #login>
+                    <a class="nav-link dropdownToggle" data-toggle="dropdown" >
+                        <i class="fa fa-user"></i> Login<b class="caret"></b>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" [routerLink]="['login']" ><i class="fa fa-fw fa-user"></i>Login</a>
+                        <a class="dropdown-item" [routerLink]="['signup']"><i class="fa fa-fw fa-envelope"></i>Registrar</a>
+                        <a class="dropdown-item" [routerLink]="['**']"><i class="fa fa-fw fa-gear"></i>Contactenos</a>
+                    </div>
+                    </ng-template>
             </ul>
         </div>
     </nav>
 </div>
-<br>
 
-<!--<nav class="navbar navbar-toggleable-md fixed-top navbar-light bg-faded">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" 
-  aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-  <img class="navbar-brand" src="/assets/images/img/logoTipo.jpg" alt="Mercado Servivios" tyle="margin-left: 0px;"/>
-
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item"><a href="#" class="nav-link">Mercado Servicio</a></li>
-        <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['']">Home <span class="sr-only">(current)</span></a>
-        </li>
-       </ul>
-    <ul class="navbar-nav d-flex flex-row flex-nowrap ml-auto mr-sm-5 mr-md-5 mr-lg-0"> 
-       <li class="nav-item dropdown ">
-          <a class="nav-link dropdown-toggle mr-2" id="navbarDropdownMenuLink" 
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <img src="" class="img-circle" style="height:25px; width:25px"><span class="caret"></span> Sign In
-                </a>
-      <div class="dropdown-menu my-2 my-lg-0" aria-labelledby="navbarDropdownMenuLink" align="right">
-            <a class="dropdown-item" href="">USER</a>
-             <a class="dropdown-item" href="">username</a> 
-              <a class="dropdown-item" href="">password</a>
-                <a class="dropdown-item" href="">Login</a> 
-      </div>
-    </li>
-    </ul>  
-  </nav>-->
+<!--
+  <div class="btn-group">
+                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-gear"></i>  <span class="caret"> botob</span>
+                        </button>
+                         <a class="nav-link" href="#" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-envelope"></i> <b class="caret"></b><span class="sr-only">(current)</span>
+                    </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Action</a>
+                            </li>
+                            <li><a href="#">Another action</a>
+                            </li>
+                            <li><a href="#">Something else here</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a>
+                            </li>
+                        </ul>
+                    </div>-->

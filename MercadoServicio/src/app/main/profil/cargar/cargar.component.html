@@ -1,0 +1,145 @@
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 push-md-4">
+            <img class="user-avatar" src="assets/images/SB-admin.png" width="150px" />
+            <h1>Mercado Servicios</h1>
+            <form role="form" (submit)=" OnSubmit()" >
+                <div class="form-content">
+                    <div class="form-group">
+                        <input #name type="text" class="form-control input-underline input-lg" id="name" placeholder="Full Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email"   #correo class="form-control input-underline input-lg"  placeholder="Email">
+                    </div>
+
+                    <div class="form-group">
+                        <input  #password type="password" class="form-control input-underline input-lg" id="password" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
+                    </div>
+                </div>
+                <a class="btn rounded-btn" (click)="OnSubmit()"> crea </a>&nbsp;
+               
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<!--<br>
+<br>
+<br>
+<div class="container">
+  <div [hidden]="submitted">
+    <h2>Contact Form</h2>
+    <form  (ngSubmit)="OnSubmit()">
+    <div class="form-group">
+      <label for="">Nombre</label>
+        <input type="text" class="form-control" placeholder="Enter Your Last Name"[(ngModel)]="nombre"ngControl="nombre" >
+      <small class="text-danger">
+            Name is required (minimum 5 characters).
+          </small>
+
+    </div>
+    <div class="form-group" >
+      <label for="">Address</label>
+      <input type="text" class="form-control"  [(ngModel)]="direccion" ngControl="direccion">
+      <small class="text-danger">
+            Street required
+          </small>
+    </div>
+
+    <div class="form-group" >
+      <label for="">Postcode</label>
+      <input type="text" class="form-control"[(ngModel)]="codigopostal" ngControl="codigopostal">
+    </div>
+
+ <div class="form-group row">
+  <label for="example-text-input" class="col-2 col-form-label">Profesion</label>
+  <div class="col-10">
+    <input class="form-control" type="text" [(ngModel)]="profesion" ngControl="profesion">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-search-input" class="col-2 col-form-label">tipo</label>
+  <div class="col-10">
+    <input class="form-control" type="text" [(ngModel)]="tipo" ngControl="tipo" >
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-email-input" class="col-2 col-form-label">Email</label>
+  <div class="col-10">
+    <input class="form-control" type="email" [(ngModel)]="correo" ngControl="correo">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-url-input" class="col-2 col-form-label">URL</label>
+  <div class="col-10">
+    <input class="form-control" type="url" >
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
+  <div class="col-10">
+    <input class="form-control" type="tel" [(ngModel)]="telefono" ngControl="telefono">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-password-input" class="col-2 col-form-label">Password</label>
+  <div class="col-10">
+    <input class="form-control" type="password" >
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-number-input" class="col-2 col-form-label">Number</label>
+  <div class="col-10">
+    <input class="form-control" type="number" >
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
+  <div class="col-10">
+    <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-date-input" class="col-2 col-form-label">Date</label>
+  <div class="col-10">
+    <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-month-input" class="col-2 col-form-label">Month</label>
+  <div class="col-10">
+    <input class="form-control" type="month" value="2011-08" id="example-month-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-week-input" class="col-2 col-form-label">Week</label>
+  <div class="col-10">
+    <input class="form-control" type="week" value="2011-W33" id="example-week-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-time-input" class="col-2 col-form-label">Time</label>
+  <div class="col-10">
+    <input class="form-control" type="time" value="13:45:00" id="example-time-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-color-input" class="col-2 col-form-label">Color</label>
+  <div class="col-10">
+    <input class="form-control" type="color" value="#563d7c" id="example-color-input">
+  </div>
+</div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+    
+  </form>
+
+ -->

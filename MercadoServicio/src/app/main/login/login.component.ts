@@ -15,7 +15,7 @@ constructor(public firebaseService: FirebaseService, private router: Router) {}
   login() {
     this.firebaseService.loginWithGoogle().then((data) => {
       // Send them to the homepage if they are logged in
-      this.router.navigate(['../home']);
+      this.router.navigate(['home']);
     })
   }
   // Login con github

@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 
 import { FirebaseService } from '../../../firebase/firebase.service';
-import { FlashMessagesService } from "angular2-flash-messages/module";
+import { FlashMessagesService } from 'angular2-flash-messages/module';
+import { Observable } from 'rxjs/Observable';
+import { Params } from '@angular/router/router';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,30 +11,38 @@ import { Router } from '@angular/router';
   templateUrl: './topnav.component.html',
   styleUrls: ['./topnav.component.scss']
 })
+/** 
+ * @method login
+ * @method logout
+ * @method buscar
+ * @function firebase(auth:type) {
+   firebase.auth;
+   firebase.metodo.buscar
+ }
+*/
 export class TopnavComponent implements OnInit {
 
- public isLoggedIn:boolean;
+ public isLoggedIn: boolean;
+ public name: string;
+ public params:any;
+
   constructor(public firebaseService: FirebaseService,
               private _flashMessagesService: FlashMessagesService,
-              private router: Router) {
-
-
-    this.firebaseService.af.auth.subscribe(
+              private router: Router) 
+    { this.firebaseService.af.auth.subscribe(
       (auth) => {
-        if(auth == null) {
+        if (auth == null) {
           console.log('Not Logged in.');
           this.router.navigate(['']);
           this.isLoggedIn = false;
-           console.log('is login '+this.isLoggedIn);
+           console.log('is login ' + this.isLoggedIn);
           this._flashMessagesService.show('Por favor logueate !', { cssClass: 'alert-danger', timeout: 3000 });
     }else {
-          console.log('Successfully Logged in.');
           console.log('Successfully Logged in.' + auth.google.email);
-          this._flashMessagesService.show('Welcome !'+auth.google.displayName, { cssClass: 'alert-success', timeout: 3000 });
+          this._flashMessagesService.show('Welcome !' + auth.google.displayName, { cssClass: 'alert-success', timeout: 3000 });
           this.isLoggedIn = true;
-          console.log('is login '+this.isLoggedIn);
-          this.firebaseService.email = auth.google.email;
-          this.router.navigate(['/home']);
+          this.name = auth.google.displayName;
+          this.router.navigate(['']);
         }
       }
     );
@@ -43,6 +53,21 @@ export class TopnavComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  buscar(params){
+    this.firebaseService.buscar(params);
+
+   console.log("Busqueda del paremetro que pasaron : " + this.params);
+   console.log(this.params);
+  }
+  buscarAll(){
+    this.firebaseService.getAllUsuario()
+    return console.log("ya esta...");
+  }
+  add(params){
+    this.firebaseService.guadarUsuario(params);
+    console.log(this.params);
+  }
   toggleSidebar() {
         const dom: any = document.querySelector('body');
         dom.classList.toggle('push-right');
@@ -51,5 +76,7 @@ export class TopnavComponent implements OnInit {
         const dom: any = document.querySelector('body');
         dom.classList.toggle('rtl');
     }
+
+
 
 }

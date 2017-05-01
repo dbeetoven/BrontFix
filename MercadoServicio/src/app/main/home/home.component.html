@@ -1,4 +1,4 @@
-<hr>
+
 <div class="content-fluid">
  <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -15,6 +15,14 @@
               <h1>Buscar Profesional</h1>
               <p>Una persona feliz no tiene un determinado conjunto de circunstancias, sino un conjunto de actitudes.</p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+             <div ngbDropdown class="d-inline-block">
+    <button class="btn btn-outline-primary" id="dropdownMenu1" ngbDropdownToggle>Toggle dropdown</button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <button class="dropdown-item">Action - 1</button>
+        <button class="dropdown-item">Another Action</button>
+        <button class="dropdown-item">Something else is here</button>
+    </div>
+</div>
             </div>
           </div>
         </div>
@@ -25,6 +33,7 @@
               <h1>William James</h1>
               <p>El gran descubrimiento de mi generación es que un ser humano puede alterar su vida al alterar sus actitudes</p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+      </div>
             </div>
           </div>
         </div>
@@ -56,7 +65,7 @@
 <div class="container">
  <!-- Call to Action Well -->
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
+        <div class=".col-xl-8">
           <div class="well text-center">
             <h2>Nuestro servicios</h2>
           </div>
@@ -87,7 +96,7 @@
           <p>Registrate, sube tu curriculum si sos un profesional calificado.
             los clientes te buscan asi que sube ya tu curriculum y empieza a vender servicios.
             nunca mas te va a quedar sin laburo.</p>
-          <p><a class="btn btn-primary" href="#" role="button">Ingresar  &raquo;</a></p>
+          <p><a class="btn btn-primary" [routerLink]="['/profil']" role="button">Ingresar  &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
        
         <div class="col-lg-4">
@@ -195,18 +204,4 @@
           <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
-      
-
-
-    
-   
-
-
-      <!-- FOOTER -->
-      <footer>
-        <p class="float-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2017 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
-
-     
 </div>

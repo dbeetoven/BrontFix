@@ -9,7 +9,6 @@ import { HttpModule } from '@angular/http';
 import {MainModule} from './main/main.module';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { ServiceService } from './main/service.service';
 import { firebaseAuthConfig } from 'angularfire2/auth';
 
 export const firebaseConfig = {
@@ -32,7 +31,7 @@ export const firebaseConfig = {
     HttpModule,
     MainModule,
     Angular2FontAwesomeModule,
-   NgbModule.forRoot(),
+  //  NgbModule.forRoot(),
    AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [FirebaseService],
