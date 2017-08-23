@@ -10,8 +10,9 @@ import { Router } from "@angular/router";
   styleUrls: ['./cargar.component.scss']
 })
 export class CargarComponent implements OnInit {
-  nombre= "Huguens Mode ";
-  apellido= "Jhon capricho";
+  id:any;
+  nombre= "Lionel Messi ";
+  apellido= "LeoBarcelona";
   calle= "Belgrano"
   numero=1234;
   fechaNacimiento= 13031992;

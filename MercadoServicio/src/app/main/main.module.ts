@@ -9,30 +9,22 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { FormsModule } from '@angular/forms';
 import { HomeModule } from './home/home.module';
 import { LoadChildren } from '@angular/router/src';
-import { LoginComponent } from './login/login.component';
 import { LoginModule } from './login/login.module';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { NotFoundModule } from './not-found/not-found.module';
 import { ProfilModule } from './profil/profil.module';
 import { SharedModule } from './shared/shared.module';
 import { SignupModule } from './signup/signup.module';
 
 const routes: Routes = [
- { path: '',
-      loadChildren: './home/home.module#HomeModule'
-  },
-  {path: '#', redirectTo: '/**', pathMatch: 'full'},
-   { path: 'profil', loadChildren: './profil/profil.module#ProfilModule'},
-  { path: 'dashboard',
-      loadChildren: './dashboard/dashboard.module#DashboardModule' },
-  {
-    path: 'login',
-      loadChildren: './login/login.module#LoginModule'},
-  { path: 'signup',
-      loadChildren: './signup/signup.module#SignupModule' },
-  { path: 'not-found',
-      loadChildren: './not-found/not-found.module#NotFoundModule' },
-    { path: '**', redirectTo: 'not-found' }
+    {path: '', redirectTo: 'home', pathMatch: 'full'},
+    {path: 'home', loadChildren: './home/home.module#HomeModule'},
+    {path: 'profil', loadChildren: './profil/profil.module#ProfilModule', pathMatch: 'full'},
+    {path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule', pathMatch: 'full'},
+    {path: 'login', loadChildren: './login/login.module#LoginModule'},
+    {path: 'signup', loadChildren: './signup/signup.module#SignupModule'},
+    {path: 'not-found', loadChildren: './not-found/not-found.module#NotFoundModule'},
+    {path: '#', redirectTo: 'home', pathMatch: 'full'},
+    {path: '**', redirectTo: 'not-found', pathMatch: 'full'}
 ];
 
 

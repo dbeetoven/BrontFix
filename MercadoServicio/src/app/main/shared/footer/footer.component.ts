@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'ms-footer',
   template: `
-    
+
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -58,7 +58,7 @@ import { Component, OnInit } from '@angular/core';
 </footer>
 
   `,
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
 

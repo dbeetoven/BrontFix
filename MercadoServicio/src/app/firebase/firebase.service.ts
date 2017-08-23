@@ -1,9 +1,12 @@
-import { AngularFire, AuthMethods, AuthProviders, FirebaseListObservable } from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
 import { FirebaseObjectObservable } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 import { Params } from '@angular/router';
 
+import * as firebase from 'firebase/app';
 @Injectable()
 export class FirebaseService {
   public usuario: FirebaseObjectObservable<any[]>;
@@ -13,61 +16,59 @@ export class FirebaseService {
   public password: string;
   public id:any;
 
-  constructor(public af:AngularFire) {
-    const servicios$: FirebaseListObservable <any> = af.database.list('messages');
+  constructor(public af: AngularFireDatabase, public afAuth: AngularFireAuth) {
+    const servicios$: FirebaseListObservable <any> = af.list('DataObject/Usuarios');
 
           servicios$.subscribe(
             val => console.log(val)
           );
-  
+
   }
-  
-  
+
   /**
    * Logs in the user
    * @returns {firebase.Promise<FirebaseAuthState>}
+   *
    */
+
   loginWithGoogle() {
-    return this.af.auth.login({
-      provider: AuthProviders.Google,
-      method: AuthMethods.Popup,
-    });
+    return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
+  iniciarSesionFacebook(){
+      return this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+  }
 /**
  * @param
  * @returns logueo con Twitter
  */
   loginWithTwitter(){
-    return this.af.auth.login({
-  provider: AuthProviders.Twitter,
-  method: AuthMethods.Redirect,
-});
+    return this.afAuth.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider());
   }
 
 /**
  * @returns loguear con correo
- * */ 
+ * */
 
 loginWithEmail(){
-  return this.af.auth.login({
-  email: this.email,
-  password:this.password,
-},
-{
-  provider: AuthProviders.Password,
-  method: AuthMethods.Password,
-});
+//   return this.afAuth.auth.login({
+//   email: this.email,
+//   password:this.password,
+// },
+// {
+//   provider: AuthProviders.Password,
+//   method: AuthMethods.Password,
+// });
 }
 /**
  * @param
  * @returns logueo con Twitter
  */
   loginWithGithub(){
-    return this.af.auth.login({
-  provider: AuthProviders.Github,
-  method: AuthMethods.Popup,
-  });
+  //   return this.afAuth.auth.login({
+  // provider: AuthProviders.Github,
+  // method: AuthMethods.Popup,
+  // });
   }
 
   /**
@@ -75,7 +76,7 @@ loginWithEmail(){
    * @param firebase User
    */
   logout() {
-    return this.af.auth.logout();
+    return this.afAuth.auth.signOut();
   }
 
   /**
@@ -83,50 +84,60 @@ loginWithEmail(){
    */
 
   guadarUsuario(Usuario){
-     this.usuario= this.af.database.object('DataObject/Usuarios/'+Usuario.nombre) as FirebaseObjectObservable<Usuario[]>
-     return this.usuario.set(Usuario).then(()=>
+     this.usuario = this.af.object('DataObject/Usuarios/' + Usuario.nombre) as FirebaseObjectObservable<Usuario[]>
+     return this.usuario.set(Usuario).then(() =>
        console.log(Usuario),
     ) ;
 
    }
 
   buscar(usuario){
-    this.usuario= this.af.database.object('DataObject/Usuarios') as FirebaseObjectObservable<Usuario>
+    this.usuario = this.af.object('DataObject/Usuarios' + usuario.nombre) as FirebaseObjectObservable<Usuario[]>
+    this.usuario.subscribe(usuario => {
+        console.log(usuario);
+        return usuario;
+      });
     console.log(this.usuario);
     return this.usuario;
   }
 
   getAllUsuario(){
-  this.usuarios=this.af.database.list('DataObject/Usuarios')as FirebaseListObservable<Usuario[]>
+  this.usuarios = this.af.list('DataObject/Usuarios')as FirebaseListObservable<any>
+  console.log("Metodo de busqueda")
+  this.usuarios.subscribe(
+  val => console.log(val));
   console.log(this.usuarios);
   return this.usuarios;
-  }
+}
+
+// exports.touch = functions.database.ref('DataObject/Usuarios').onWrite(
+//     event => admin.database().ref('/lastmodified').set(event.timestamp));
 }
 
 // Interface Datos  Usuario
 interface Usuario{
-  $key?: String;
-  nombre?: String;
-  apellido?: String;
+  $key?: string;
+  nombre?: string;
+  apellido?: string;
   direccion?: {
         calle?: string; // required
         codigoPostal?: string;
-        numero?:number;
+        numero?: number;
     }
   fechaNacimiento?: Date;
-  correos?: String[];
-  profesiones?: String[];
-  Telefono?:{
-      casa?:{numero?:number;}
-       mobil?:{numero?:number;}
-        oficina?:{numero?:number;}
+  correos?: string[];
+  profesiones?: string[];
+  Telefono?: {
+      casa?: {numero?: number; }
+       mobil?: {numero?: number; }
+        oficina?: {numero?: number; }
   }
-  tipo?: String;
-  descripcion?: String;
-  rating?: String;
-  vigente?: Boolean;
-  fechaServivios?:any[];
-  fechaDeAlta?:Date;
+  tipo?: string;
+  descripcion?: string;
+  rating?: string;
+  vigente?: boolean;
+  fechaServivios?: any[];
+  fechaDeAlta?: Date;
   fechaDeBaja?: Date;
   Servicios?: any[];
 

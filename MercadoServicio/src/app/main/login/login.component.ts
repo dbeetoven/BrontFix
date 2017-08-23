@@ -20,24 +20,29 @@ constructor(public firebaseService: FirebaseService, private router: Router) {}
   }
   // Login con github
   loginGithub() {
-    this.firebaseService.loginWithGithub().then((data) => {
-      // Send them to the homepage if they are logged in
-      this.router.navigate(['../home']);
-    })
-  } 
-
-loginEmail() {
-    this.firebaseService.loginWithEmail().then((data) => {
-      // Send them to the homepage if they are logged in
-      this.router.navigate(['../home']);
-    })
+    // this.firebaseService.loginWithGithub().then((data) => {
+    //   // Send them to the homepage if they are logged in
+    //   this.router.navigate(['../home']);
+    // })
   }
-  
-  loginTwitter() {
+
+loginEmail(){
+    // this.firebaseService.loginWithEmail().then((data) => {
+    //   // Send them to the homepage if they are logged in
+    //   this.router.navigate(['../home']);
+    // })
+  }
+  loginTwitter(){
     this.firebaseService.loginWithTwitter().then((data) => {
       // Send them to the homepage if they are logged in
       this.router.navigate(['../home']);
     })
   }
 
+  iniciarFacebook(){
+    this.firebaseService.iniciarSesionFacebook().then((data)=>{
+      console.log('success');
+      this.router.navigate(['home']);
+    })
+  }
 }

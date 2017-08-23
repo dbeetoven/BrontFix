@@ -15,10 +15,9 @@ const routes: Routes = [
     path: 'dashboard', component: DashboardComponent,
     children: [
       {path: '', component: LayoutComponent},
-      {path: 'descripcion/:id', component:DescripcionComponent}
+      {path: 'descripcion/:id', component: DescripcionComponent}
 
     ]
-
   }
 ];
 
