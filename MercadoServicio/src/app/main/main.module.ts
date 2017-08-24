@@ -1,10 +1,9 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { CommonModule } from '@angular/common';
 import { ContentComponent } from './content/content.component';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { FiredatabaseService } from './servicios/firedatabase.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { FormsModule } from '@angular/forms';
 import { HomeModule } from './home/home.module';
@@ -14,12 +13,16 @@ import { NotFoundModule } from './not-found/not-found.module';
 import { ProfilModule } from './profil/profil.module';
 import { SharedModule } from './shared/shared.module';
 import { SignupModule } from './signup/signup.module';
+import { LayoutModule } from './layout/layout.module';
+import { CustomerComponent } from './customer/customer.component';
+
+
 
 const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'home', loadChildren: './home/home.module#HomeModule'},
+    {path:'layout',loadChildren:'./layout/layout.module#LayoutModule',pathMatch: 'full'},
     {path: 'profil', loadChildren: './profil/profil.module#ProfilModule', pathMatch: 'full'},
-    {path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule', pathMatch: 'full'},
     {path: 'login', loadChildren: './login/login.module#LoginModule'},
     {path: 'signup', loadChildren: './signup/signup.module#SignupModule'},
     {path: 'not-found', loadChildren: './not-found/not-found.module#NotFoundModule'},
@@ -33,17 +36,17 @@ const routes: Routes = [
     CommonModule,
     SharedModule,
     HomeModule,
-    DashboardModule,
     LoginModule,
     NotFoundModule,
     SignupModule,
-    FlashMessagesModule,
     ProfilModule,
     FormsModule,
+    LayoutModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
-  providers: [FiredatabaseService],
+  providers: [],
   exports: [ContentComponent],
-  declarations: [ContentComponent]
+  declarations: [ContentComponent, CustomerComponent]
 })
 export class MainModule { }

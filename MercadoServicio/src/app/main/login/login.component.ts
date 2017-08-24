@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FirebaseService } from '../../firebase/firebase.service';
+import { AuthentificationServiceService} from '../services/firebase/firebase-authentification/authentification-service.service';
 import { Router } from '@angular/router';
 import { firebaseConfig } from '../../app.module';
 
@@ -9,40 +9,33 @@ import { firebaseConfig } from '../../app.module';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-constructor(public firebaseService: FirebaseService, private router: Router) {}
-  login() {
-    this.firebaseService.loginWithGoogle().then((data) => {
-      // Send them to the homepage if they are logged in
+  private user;
+  private userdata;
+constructor(private authenticate: AuthentificationServiceService,
+            private router: Router) {
+
+}
+
+authWithGoogle(){
+  this.authenticate.loginWihGoogle().then(
+    (response) => {
+      this.userdata = response.data;
       this.router.navigate(['home']);
-    })
-  }
-  // Login con github
-  loginGithub() {
-    // this.firebaseService.loginWithGithub().then((data) => {
-    //   // Send them to the homepage if they are logged in
-    //   this.router.navigate(['../home']);
-    // })
-  }
+      console.dir(response);
+    },
+    (error) => {
+      console.dir('ocurrio un error, verifique sus datos ',error);
+    }
+  );
+}
 
-loginEmail(){
-    // this.firebaseService.loginWithEmail().then((data) => {
-    //   // Send them to the homepage if they are logged in
-    //   this.router.navigate(['../home']);
-    // })
-  }
-  loginTwitter(){
-    this.firebaseService.loginWithTwitter().then((data) => {
-      // Send them to the homepage if they are logged in
-      this.router.navigate(['../home']);
-    })
-  }
 
-  iniciarFacebook(){
-    this.firebaseService.iniciarSesionFacebook().then((data)=>{
-      console.log('success');
-      this.router.navigate(['home']);
-    })
+
+
+
+  ngOnInit(): void {
+    console.dir(this.user,':::',this.userdata)
   }
 }

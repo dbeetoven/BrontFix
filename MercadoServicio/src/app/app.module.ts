@@ -1,12 +1,10 @@
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 import { BrowserModule } from '@angular/platform-browser';
 import { ContentComponent } from './main/content/content.component';
-import { FirebaseService } from './firebase/firebase.service';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MainModule } from './main/main.module';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -33,12 +31,11 @@ export const firebaseConfig = {
     HttpModule,
     MainModule,
     Angular2FontawesomeModule,
-    NgbModule.forRoot(),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [FirebaseService],
+  providers: [],
   bootstrap: [ContentComponent]
 })
 export class AppModule { }

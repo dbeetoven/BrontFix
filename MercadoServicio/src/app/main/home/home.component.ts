@@ -1,15 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import {HomeServiceService} from './home-service.service';
+import { FirebasedataServiceService } from '../services/firebase/firebasedata/firebasedata-service.service';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { PromiseObservable } from 'rxjs/observable/PromiseObservable';
 
 @Component({
   selector: 'ms-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  providers: [HomeServiceService]
 })
 export class HomeComponent implements OnInit {
  public alerts: Array<any> = [];
  public sliders: Array<any> = [];
 
-  constructor() {
+
+  constructor(private homeService: HomeServiceService) {
+
         this.sliders.push({
             imagePath: 'assets/images/slider1.jpg',
             label: 'First slide label',
@@ -41,7 +49,10 @@ export class HomeComponent implements OnInit {
         });
     }
 
+
   ngOnInit() {
+    this.homeService.getAll();
+
   }
 
 }
