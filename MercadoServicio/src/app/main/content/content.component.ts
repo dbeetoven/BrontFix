@@ -5,8 +5,6 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
   template: `
   <ms-topnav></ms-topnav>
   <router-outlet></router-outlet>
-  <ms-footer></ms-footer>
-
   `,
   styleUrls: ['./content.component.scss'],
 })

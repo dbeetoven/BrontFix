@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs/Observable';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireAuth,AngularFireAuthModule, } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Injectable } from '@angular/core';
 
@@ -11,18 +11,37 @@ export class AuthentificationServiceService {
     this.user = authentification.authState;
   }
 
-  getUserStatus() {
-    return this.user;
-  }
+
 
   // Authentification methods
-  loginWihGoogle() {
-    return this.authentification.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  // loginWihGoogle() {
+  //    return this.authentification.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  // }
+
+  signup(email: string, password: string) {
+    this.authentification.auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(value => {
+        console.log('Success!', value);
+      })
+      .catch(err => {
+        console.log('Something went wrong:',err.message);
+      });
+  }
+
+  login(email: string, password: string) {
+    return this.authentification.auth.signInWithEmailAndPassword(email, password);
+  }
+
+
+  getUserStatus() {
+    return this.user;
   }
 
   logout() {
     return this.authentification.auth.signOut();
   }
+
 
 
 }
