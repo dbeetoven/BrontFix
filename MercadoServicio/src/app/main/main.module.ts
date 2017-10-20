@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ContentComponent } from './content/content.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
+import { MainComponent } from './main.component';
 
 
 
@@ -26,7 +27,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [],
-  exports: [ContentComponent],
-  declarations: [ContentComponent]
+  exports: [ContentComponent,MainComponent],
+  declarations: [ContentComponent, MainComponent]
 })
 export class MainModule { }

@@ -4,6 +4,7 @@ import { ContentComponent } from './main/content/content.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MainModule } from './main/main.module';
+import { MainComponent } from './main/main.component';
 import { NgModule } from '@angular/core';
 
 import { AngularFireModule } from 'angularfire2';
@@ -11,6 +12,7 @@ import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable 
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
 import * as firebase from 'firebase/app';
+
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyDC3ijkLJzXTLlTLM3nWmqRsYxusjTVgVc',
@@ -36,6 +38,6 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [],
-  bootstrap: [ContentComponent]
+  bootstrap: [MainComponent]
 })
 export class AppModule { }
