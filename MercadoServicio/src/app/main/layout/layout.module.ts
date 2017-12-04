@@ -9,9 +9,6 @@ import { LayoutComponent } from 'app/main/layout/layout.component';
 const routes: Routes = [
   {
     path: '', component: LayoutComponent,
-    children: [
-      { path: 'servicios', loadChildren: './dashboard/dashboard.module#DashboardModule' },
-    ]
   }
 ];
 @NgModule({

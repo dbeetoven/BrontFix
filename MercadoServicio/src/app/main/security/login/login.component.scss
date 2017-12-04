@@ -1,4 +1,4 @@
-$topnav-background-color: #51BDF5;
+$topnav-background-color: #fff;
 :host {
     display: block;
 }
@@ -11,10 +11,10 @@ $topnav-background-color: #51BDF5;
     overflow: auto;
     background: $topnav-background-color;
     text-align: center;
-    color: #fff;
+    color: #000000;
     padding: 3em;
-    .col-lg-4{
-        padding :0;
+    .col-lg-4 {
+        padding: 0;
     }
     .input-lg {
         height: 46px;
@@ -27,27 +27,30 @@ $topnav-background-color: #51BDF5;
         background: 0 0;
         border: none;
         box-shadow: none;
-        border-bottom: 2px solid rgba(255,255,255,.5);
-        color: #FFF;
+        border-bottom: 2px solid rgba(29, 28, 28, 0.5);
+        color: #000000;
         border-radius: 0;
     }
     .input-underline:focus {
-        border-bottom: 2px solid #fff;
+        border-bottom: 2px solid #000000;
         box-shadow: none;
     }
-    .rounded-btn{
+    .rounded-btn {
         -webkit-border-radius: 50px;
-                border-radius: 50px;
-        color: rgba(255,255,255,0.8);
+        border-radius: 50px;
+        color: rgba(34, 34, 34, 0.8);
         background: $topnav-background-color;
-        border: 2px solid rgba(255,255,255,0.8);
+        border: 2px solid rgba(17, 16, 16, 0.8);
         font-size: 18px;
         line-height: 40px;
         padding: 0 25px;
     }
-    .rounded-btn:hover,.rounded-btn:focus,.rounded-btn:active,.rounded-btn:visited{
-        color: rgba(255,255,255,1);
-        border: 2px solid rgba(255,255,255,1);
+    .rounded-btn:hover,
+    .rounded-btn:focus,
+    .rounded-btn:active,
+    .rounded-btn:visited {
+        color: rgb(0, 0, 0);
+        border: 2px solid rgb(85, 85, 85);
         outline: none;
     }
 
@@ -57,26 +60,28 @@ $topnav-background-color: #51BDF5;
         margin-bottom: 10px;
         font-size: 36px;
         small {
-            color: rgba(255,255,255,0.7);
+            color: rgba(3, 3, 3, 0.7);
         }
     }
 
     .form-group {
         padding: 8px 0;
         input::-webkit-input-placeholder {
-        color: rgba(255,255,255,0.6) !important;
+            color: rgba(0, 0, 0, 0.6) !important;
         }
 
-        input:-moz-placeholder { /* Firefox 18- */
-        color: rgba(255,255,255,0.6) !important;
+        input:-moz-placeholder {
+            /* Firefox 18- */
+            color: rgba(0, 0, 0, 0.6) !important;
         }
 
-        input::-moz-placeholder {  /* Firefox 19+ */
-        color: rgba(255,255,255,0.6) !important;
+        input::-moz-placeholder {
+            /* Firefox 19+ */
+            color: rgba(0, 0, 0, 0.6) !important;
         }
 
         input:-ms-input-placeholder {
-        color: rgba(255,255,255,0.6) !important;
+            color: rgba(2, 2, 2, 0.6) !important;
         }
     }
     .form-content {
@@ -84,7 +89,7 @@ $topnav-background-color: #51BDF5;
     }
     .user-avatar {
         -webkit-border-radius: 50%;
-                border-radius: 50%;
-        border: 2px solid #FFF;
+        border-radius: 50%;
+        border: 2px solid #000000;
     }
 }

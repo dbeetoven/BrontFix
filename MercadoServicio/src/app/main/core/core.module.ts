@@ -1,15 +1,19 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CoreComponent } from './core.component';
-import { CarouselComponent, ArticlesComponent,NotificationComponent} from './components';
-import { NgbCarouselModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
-import { SharedModule } from '../shared/shared.module';
-import { RouterModule, Routes } from '@angular/router';
-
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { CoreComponent } from "./core.component";
+import {
+  CarouselComponent,
+  ArticlesComponent,
+  NotificationComponent
+} from "./components";
+import { NgbCarouselModule, NgbAlertModule } from "@ng-bootstrap/ng-bootstrap";
+import { SharedModule } from "../shared/shared.module";
+import { RouterModule, Routes } from "@angular/router";
+import { Observable } from 'rxjs/Observable';
 
 const routes: Routes = [
   {
-    path: '', component: CoreComponent
+    path: "",component: CoreComponent
   }
 ];
 
@@ -21,6 +25,11 @@ const routes: Routes = [
     NgbAlertModule.forRoot(),
     RouterModule.forChild(routes)
   ],
-  declarations: [CoreComponent, CarouselComponent, ArticlesComponent, NotificationComponent]
+  declarations: [
+    CoreComponent,
+    CarouselComponent,
+    ArticlesComponent,
+    NotificationComponent
+  ]
 })
-export class CoreModule { }
+export class CoreModule {}

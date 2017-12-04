@@ -1,6 +1,6 @@
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-
+import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -9,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
+  isActive: boolean = false;
+  showMenu: string = '';
 
-  isActive = false;
-  showMenu = '';
 
   constructor(private router: Router,
     private route: ActivatedRoute) { }
@@ -29,7 +29,6 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() { }
 }
-
 
 
 

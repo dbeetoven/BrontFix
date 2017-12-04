@@ -4,14 +4,14 @@ import { Observable } from 'rxjs/Observable';
 import { Params } from '@angular/router/router';
 import { Router } from '@angular/router';
 import { async } from '@angular/core/testing';
-import { AuthentificationServiceService } from '../../services/firebase/firebase-authentification/authentification-service.service';
+
 
 
 @Component({
   selector: 'ms-topnav',
   templateUrl: './topnav.component.html',
   styleUrls: ['./topnav.component.scss'],
-  providers: [AuthentificationServiceService]
+  providers: []
 })
 export class TopnavComponent implements OnInit {
 
@@ -19,21 +19,21 @@ export class TopnavComponent implements OnInit {
   private email: string;
 
 
-  constructor(private router: Router, private authenticate: AuthentificationServiceService, ) {
+  constructor(private router: Router,) {
     this.email = 'beetovenson@hotmail.com';
 
   }
 
   loggout() {
-    this.authenticate.logout().then(
-      () => {
-        console.dir('loggout...');
-      }
-    );
+    // this.authenticate.logout().then(
+    //   () => {
+    //     console.dir('loggout...');
+    //   }
+    // );
   }
 
   ngOnInit() {
-    this.isLoggedIn = this.authenticate.getUserStatus();
+    // this.isLoggedIn = this.authenticate.getUserStatus();
   }
 
 
