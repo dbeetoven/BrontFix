@@ -17,12 +17,11 @@
     "tsconfig": "tsconfig.json",
     "prefix": "ms",
     "styles": [
-      "../node_modules/font-awesome/css/font-awesome.css",
+      "node_modules/bootstrap/dist/css/bootstrap.min.css",
+      "node_modules/font-awesome/css/font-awesome.css",
       "styles/app.scss"
     ],
-    "scripts": [
-      "../node_modules/tether/dist/js/tether.js"
-    ],
+    "scripts": [],
     "environmentSource": "environments/environment.ts",
     "environments": {
       "dev": "environments/environment.ts",
