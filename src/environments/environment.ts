@@ -5,6 +5,7 @@
 
 export const environment = {
   production: false,
+  isDebugMode: true,
   firebase: {
     apiKey: 'AIzaSyBLZjWJQN0EKqhFbGiJDLmgwkr6q7AvHrE',
     authDomain: 'mercado-servicios-166615.firebaseapp.com',

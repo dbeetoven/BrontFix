@@ -1,0 +1,203 @@
+<!--
+  <div class="row">
+    <div class="col-md-12">
+        <ngb-carousel>
+            <ng-template ngbSlide *ngFor="let slider of sliders">
+                <img class="img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" width="100%">
+                <div class="carousel-caption">
+                    <h3>{{slider.label}}</h3>
+                    <p>{{slider.text}}</p>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+  </div>
+-->
+<hr />
+<div class="container">
+  <div class="row">
+    <div class="col-xl-3 col-lg-6">
+      <div class="card card-inverse card-primary ">
+        <div class="card-header">
+          <div class="row">
+            <div class="col col-xs-3"><i class="fa fa-user-o fa-5x"></i></div>
+            <div class="col col-xs-9 text-right">
+              <div class="d-block huge"></div>
+              <div class="d-block">¿Eres un profesional?</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="float-left">Registrate</span>
+          <a href="javascript:void(0)" class="float-right card-inverse">
+            <span><i class="fa fa-arrow-circle-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6">
+      <div class="card card-inverse card-primary ">
+        <div class="card-header">
+          <div class="row">
+            <div class="col col-xs-3">
+              <i class="fa fa-cart-plus fa-5x"></i>
+            </div>
+            <div class="col col-xs-9 text-right">
+              <div class="d-block huge"></div>
+              <div class="d-block">Publicar un servicio</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="float-left">publicar</span>
+          <a href="javascript:void(0)" class="float-right card-inverse">
+            <span><i class="fa fa-arrow-circle-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6">
+      <div class="card card-inverse card-primary ">
+        <div class="card-header">
+          <div class="row">
+            <div class="col col-xs-3">
+              <i class="fa fa-commenting-o fa-5x"></i>
+            </div>
+            <div class="col col-xs-9 text-right">
+              <div class="d-block huge"></div>
+              <div class="d-block">Registrate & chatea con el profesional</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="float-left">Chatear</span>
+          <a href="javascript:void(0)" class="float-right card-inverse">
+            <span><i class="fa fa-arrow-circle-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6">
+      <div class="card card-inverse card-primary ">
+        <div class="card-header">
+          <div class="row">
+            <div class="col col-xs-3"><i class="fa fa-database fa-5x"></i></div>
+            <div class="col col-xs-9 text-right">
+              <div class="d-block huge"></div>
+              <div class="d-block">Encuentre la solucion a tu problema</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="float-left">Buscar</span>
+          <a href="javascript:void(0)" class="float-right card-inverse">
+            <span><i class="fa fa-arrow-circle-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr />
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <img
+        class="rounded-circle"
+        src="/assets/images/img/buscar.jpg"
+        alt="Generic placeholder image"
+        width="140"
+        height="140"
+      />
+      <h2>Publicar un Servicio</h2>
+      <span class="social social-blogger">
+        <strong>Encontra el profesional adecuado para tu servicio</strong>
+      </span>
+      <p>
+        Los mejores profesionales estan pendientes de tus servicios, publica un
+        servicio al la breviedad te contactara un especialista es
+        facil,seguro,rapido, y con los mejores precios.
+      </p>
+      <p>
+        <a class="btn btn-primary" [routerLink]="['/detalle']" role="button"
+          >Publicar</a
+        >
+      </p>
+    </div>
+    <!-- /.col-lg-4 -->
+
+    <div class="col-lg-4">
+      <img
+        class="rounded-circle"
+        src="/assets/images/img/perfil.jpg"
+        alt="Generic placeholder image"
+        width="140"
+        height="140"
+      />
+      <h2>Cargar Pelfil</h2>
+      <span class="social social-blogger">
+        <strong
+          >Haz que tu trabajo, llegue en todo el mundo cargue tu perfil</strong
+        >
+      </span>
+      <p>
+        Registrate, sube tu curriculum si sos un profesional calificado. los
+        clientes te buscan asi que sube ya tu curriculum y empieza a vender
+        servicios. nunca mas te va a quedar sin laburo.
+      </p>
+      <p>
+        <a class="btn btn-primary" [routerLink]="['/cliente']" role="button"
+          >Cargar</a
+        >
+      </p>
+    </div>
+    <!-- /.col-lg-4 -->
+
+    <div class="col-lg-4">
+      <img
+        class="rounded-circle"
+        src="/assets/images/img/search.jpg"
+        alt="Generic placeholder image"
+        width="140"
+        height="140"
+      />
+      <h2>Buscar Profesional</h2>
+      <span class="social social-blogger">
+        <strong>Encontra el profesional adecuado para tu servicio</strong>
+      </span>
+      <p>
+        Buscar un profesional no era tan facil, con nosotros es cuestion de
+        minutos. Busqueda muy simple, encuentras el perfil de profesional
+        adecuado y lo contratas.
+      </p>
+      <p>
+        <a class="btn btn-primary" [routerLink]="['/detalle']" role="button"
+          >Buscar</a
+        >
+      </p>
+    </div>
+    <!-- /.col-lg-4 -->
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-xl-3 col-lg-6" *ngFor="let task of tasks">
+      <img
+        class="rounded-circle"
+        src="/assets/images/pic/{{task.imageUrl}}"
+        alt="Generic placeholder image"
+        width="140"
+        height="140"
+      />
+      <h2>{{ task.title }}</h2>
+      <p>{{ task.description }}</p>
+      <p>{{ task.salaryRange }}</p>
+      <p>
+        <button type="button" class="btn btn-outline-info">
+          mas informacion
+        </button>
+      </p>
+    </div>
+  </div>
+</div>
+<hr />

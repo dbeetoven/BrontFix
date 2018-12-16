@@ -121,10 +121,23 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "ms",
-      "styleext": "scss"
+      "styleext": "scss",
+      "spec": false
     },
     "@schematics/angular:directive": {
-      "prefix": "ms"
+      "prefix": "ms",
+      "spec": false
+    },"@schematics/angular:module": {
+      "spec": false
+    },
+    "@schematics/angular:service": {
+      "spec": false
+    },
+    "@schematics/angular:pipe": {
+      "spec": false
+    },
+    "@schematics/angular:class": {
+      "spec": false
     }
   }
 }
