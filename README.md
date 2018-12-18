@@ -1,9 +1,9 @@
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-# Shop Services 2016 B.A
-## App name comming soon.
+## Brontrix Services
 
-App main objective is to provide to the user relevant services information in real time.
+# Shop Services 2016 B.A
+## Angular 7  aplicaction Front End Brontrix Serivices
+
+ Shop service.
 
 
 @Authors and collaborators
