@@ -1,18 +1,19 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { environment } from 'environments/environment';
 import { AppRoutingModule } from './App-rooting.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './Services/authentification/auth.guard';
 import { AuthentificationService } from './Services/authentification/authentification.service';
 import { SharedModule } from './shared/shared.module';
-import { LoggerService } from './utils/logger/logger.service';
 import { ConsoleLoggerService } from './utils/logger/console-logger.service';
+import { LoggerService } from './utils/logger/logger.service';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ConsoleLoggerService } from './utils/logger/console-logger.service';
     AppRoutingModule,
     SharedModule,
     NgbModule.forRoot(),
+    MDBBootstrapModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
@@ -32,6 +34,7 @@ import { ConsoleLoggerService } from './utils/logger/console-logger.service';
     AuthGuard,
     { provide: LoggerService, useClass: ConsoleLoggerService },
   ],
+  schemas: [ NO_ERRORS_SCHEMA ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

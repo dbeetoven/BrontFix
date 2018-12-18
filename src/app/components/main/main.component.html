@@ -1,18 +1,27 @@
-<!--
-  <div class="row">
-    <div class="col-md-12">
-        <ngb-carousel>
-            <ng-template ngbSlide *ngFor="let slider of sliders">
-                <img class="img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" width="100%">
-                <div class="carousel-caption">
-                    <h3>{{slider.label}}</h3>
-                    <p>{{slider.text}}</p>
-                </div>
-            </ng-template>
-        </ngb-carousel>
+<ms-header></ms-header>
+<section class="pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="height:100vh; background-size: cover; background-image: url(assets/images/img/professions.jpg);">
+  <div class="container-fluid">
+    <div class="row  justify-content-center align-items-center d-flex text-center h-100">
+      <div class="col-12 col-md-8  h-50 ">
+        <h1 class="display-2  text-light mb-2 mt-5">
+          <strong>Brontrix Services</strong>
+        </h1>
+        <p class="lead  text-light mb-5">
+          Sub-heading. Header 100% height with center align items
+        </p>
+        <p>
+          <a [routerLink]="['login']" class="btn bg-primary btn-round text-light btn-lg btn-rised">Login</a>
+        </p>
+
+        <div class="btn-container-wrapper p-relative d-block  zindex-1">
+          <a class="btn btn-link btn-lg   mt-md-3 mb-4 scroll align-self-center text-light" href="http://bootstraptor.com">
+            <i class="fa fa-angle-down fa-4x text-light"></i>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
--->
+</section>
 <hr />
 <div class="container">
   <div class="row">
@@ -103,13 +112,8 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-4">
-      <img
-        class="rounded-circle"
-        src="/assets/images/img/buscar.jpg"
-        alt="Generic placeholder image"
-        width="140"
-        height="140"
-      />
+      <img class="rounded-circle" src="/assets/images/img/buscar.jpg" alt="Generic placeholder image" width="140"
+        height="140" />
       <h2>Publicar un Servicio</h2>
       <span class="social social-blogger">
         <strong>Encontra el profesional adecuado para tu servicio</strong>
@@ -120,26 +124,17 @@
         facil,seguro,rapido, y con los mejores precios.
       </p>
       <p>
-        <a class="btn btn-primary" [routerLink]="['/detalle']" role="button"
-          >Publicar</a
-        >
+        <a class="btn btn-primary" [routerLink]="['/detalle']" role="button">Publicar</a>
       </p>
     </div>
     <!-- /.col-lg-4 -->
 
     <div class="col-lg-4">
-      <img
-        class="rounded-circle"
-        src="/assets/images/img/perfil.jpg"
-        alt="Generic placeholder image"
-        width="140"
-        height="140"
-      />
+      <img class="rounded-circle" src="/assets/images/img/perfil.jpg" alt="Generic placeholder image" width="140"
+        height="140" />
       <h2>Cargar Pelfil</h2>
       <span class="social social-blogger">
-        <strong
-          >Haz que tu trabajo, llegue en todo el mundo cargue tu perfil</strong
-        >
+        <strong>Haz que tu trabajo, llegue en todo el mundo cargue tu perfil</strong>
       </span>
       <p>
         Registrate, sube tu curriculum si sos un profesional calificado. los
@@ -147,21 +142,14 @@
         servicios. nunca mas te va a quedar sin laburo.
       </p>
       <p>
-        <a class="btn btn-primary" [routerLink]="['/cliente']" role="button"
-          >Cargar</a
-        >
+        <a class="btn btn-primary" [routerLink]="['/cliente']" role="button">Cargar</a>
       </p>
     </div>
     <!-- /.col-lg-4 -->
 
     <div class="col-lg-4">
-      <img
-        class="rounded-circle"
-        src="/assets/images/img/search.jpg"
-        alt="Generic placeholder image"
-        width="140"
-        height="140"
-      />
+      <img class="rounded-circle" src="/assets/images/img/search.jpg" alt="Generic placeholder image" width="140"
+        height="140" />
       <h2>Buscar Profesional</h2>
       <span class="social social-blogger">
         <strong>Encontra el profesional adecuado para tu servicio</strong>
@@ -172,9 +160,7 @@
         adecuado y lo contratas.
       </p>
       <p>
-        <a class="btn btn-primary" [routerLink]="['/detalle']" role="button"
-          >Buscar</a
-        >
+        <a class="btn btn-primary" [routerLink]="['/detalle']" role="button">Buscar</a>
       </p>
     </div>
     <!-- /.col-lg-4 -->
@@ -182,13 +168,8 @@
   <hr />
   <div class="row">
     <div class="col-xl-3 col-lg-6" *ngFor="let task of tasks">
-      <img
-        class="rounded-circle"
-        src="/assets/images/pic/{{task.imageUrl}}"
-        alt="Generic placeholder image"
-        width="140"
-        height="140"
-      />
+      <img class="rounded-circle" src="/assets/images/pic/{{task.imageUrl}}" alt="Generic placeholder image" width="140"
+        height="140" />
       <h2>{{ task.title }}</h2>
       <p>{{ task.description }}</p>
       <p>{{ task.salaryRange }}</p>
@@ -201,3 +182,4 @@
   </div>
 </div>
 <hr />
+<ms-footer></ms-footer>

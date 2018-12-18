@@ -1,5 +1,5 @@
 /**
- * @description class profesion task to map to view.
+ * @description class profession task to map to view.
  * @author dbeetoven
  * @date 2018-12-16
  * @export
