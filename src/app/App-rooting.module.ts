@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './Services/authentification/auth.guard';
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'user',
-    loadChildren: './components/customer/customer.module#CustomerModule'
+    loadChildren: './components/customer/customer.module#CustomerModule',
+    canActivate: [AuthGuard]
   },
   {
     path: 'not-found',

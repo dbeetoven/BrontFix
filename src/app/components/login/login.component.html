@@ -1,71 +1,49 @@
-<!-- Material form login -->
-<div class="container login">
-  <div class="card">
+<div class="container-login100" style="background-image: url(assets/images/img/professions.jpg);">
+  <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+    <form class="login100-form validate-form">
+      <span class="login100-form-title p-b-37">
+        Iniciar Sesion
+      </span>
 
-    <h5 class="card-header info-color white-text text-center py-4">
-      <strong>Sign in</strong>
-    </h5>
+      <div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
+        <input class="input100" type="text" name="username" placeholder="usuario or correo">
+        <span class="focus-input100"></span>
+      </div>
 
-    <!--Card content-->
-    <div class="card-body px-lg-5 pt-0">
+      <div class="wrap-input100 validate-input m-b-25" data-validate="Enter password">
+        <input class="input100" type="password" name="pass" placeholder="password">
+        <span class="focus-input100"></span>
+      </div>
 
-      <!-- Form -->
-      <form class="text-center" style="color: #757575;">
+      <div class="container-login100-form-btn">
+        <button class="login100-form-btn">
+          Ingresar
+        </button>
+      </div>
 
-        <!-- Email -->
-        <div class="md-form">
-          <input type="email" id="materialLoginFormEmail" class="form-control">
-          <label for="materialLoginFormEmail">E-mail</label>
-        </div>
+      <div class="text-center p-t-57 p-b-20">
+        <span class="txt1">
+          Or Ingresa con
+        </span>
+      </div>
 
-        <!-- Password -->
-        <div class="md-form">
-          <input type="password" id="materialLoginFormPassword" class="form-control">
-          <label for="materialLoginFormPassword">Password</label>
-        </div>
-
-        <div class="d-flex justify-content-around">
-          <div>
-            <!-- Remember me -->
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="materialLoginFormRemember">
-              <label class="form-check-label" for="materialLoginFormRemember">Remember me</label>
-            </div>
-          </div>
-          <div>
-            <!-- Forgot password -->
-            <a href="">Forgot password?</a>
-          </div>
-        </div>
-
-        <!-- Sign in button -->
-        <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
-
-        <!-- Register -->
-        <p>Not a member?
-          <a href="">Register</a>
-        </p>
-
-        <!-- Social login -->
-        <p>or sign in with:</p>
-        <a type="button" class="btn-floating btn-fb btn-sm">
-          <i class="fa fa-facebook"></i>
-        </a>
-        <a type="button" class="btn-floating btn-tw btn-sm">
-          <i class="fa fa-twitter"></i>
-        </a>
-        <a type="button" class="btn-floating btn-li btn-sm">
-          <i class="fa fa-linkedin"></i>
-        </a>
-        <a type="button" class="btn-floating btn-git btn-sm">
-          <i class="fa fa-github"></i>
+      <div class="flex-c p-b-112">
+        <a href="#" class="login100-social-item">
+          <i class="fa fa-facebook-f"></i>
         </a>
 
-      </form>
-      <!-- Form -->
+        <a (click)="googleLogin()" class="login100-social-item">
+          <img src="/assets/icons/icon-google.png" alt="GOOGLE">
+        </a>
+      </div>
 
-    </div>
+      <div class="text-center">
+        <a href="#" class="txt2 hov1">
+            ¿Has olvidado tu contrasena?
+          </a>
+      </div>
+    </form>
+
 
   </div>
-  <!-- Material form login -->
 </div>

@@ -1,9 +1,12 @@
-import { Injectable } from '@angular/core'
-import { AngularFireAuth } from '@angular/fire/auth'
-import { Router } from '@angular/router'
-import { auth } from 'firebase/app'
-import { Observable } from 'rxjs'
+import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
+import { User } from 'app/classes/mappers/user';
 import { LoggerService } from 'app/utils/logger/logger.service';
+import { auth } from 'firebase';
+import { Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 /**
  * @description Authentification service class.
@@ -16,8 +19,9 @@ import { LoggerService } from 'app/utils/logger/logger.service';
   providedIn: 'root',
 })
 export class AuthentificationService {
-  private user: Observable<firebase.User>
-  private userDetails: firebase.User
+  public user: Observable<User>
+  public authState: any
+  private isAuth: boolean
 
   /**
    *Creates an instance of AuthentificationService.
@@ -29,19 +33,22 @@ export class AuthentificationService {
    * @memberof AuthentificationService
    */
   constructor(
-    private _authFservice: AngularFireAuth,
+    private _afAuth: AngularFireAuth,
+    private _afs: AngularFirestore,
     private _router: Router,
     private _logger: LoggerService
   ) {
-    this.user = _authFservice.authState
-    this.user.subscribe(userState => {
-      if (userState) {
-        this.userDetails = userState
-      } else {
-        this.userDetails = null
-      }
-    })
-    this._logger.info(this.userDetails)
+    // Get auth data, then get firestore user document || null
+    this.user = this._afAuth.authState.pipe(
+      switchMap(user => {
+        if (user) {
+          return this._afs.doc<User>(`users/${user.uid}`).valueChanges()
+        } else {
+          return of(null)
+        }
+      })
+    )
+    this._logger.info(this.user);
   }
 
   /**
@@ -51,30 +58,8 @@ export class AuthentificationService {
    * @memberof AuthentificationService
    */
   loginWithGoogle() {
-    this._authFservice.auth.signInWithPopup(new auth.GoogleAuthProvider()).then(
-      res => {
-        this._logger.info(res)
-        localStorage.setItem(
-          '_userProfile',
-          JSON.stringify(res.additionalUserInfo)
-        )
-        localStorage.setItem('_credential', JSON.stringify(res.credential))
-        localStorage.setItem('_user', JSON.stringify(res.user))
-      },
-      error => {
-        this._logger.error(error)
-      }
-    )
-  }
-
-  /**
-   * @description logout and then return toa app root.
-   * @author dbeetoven
-   * @date 2018-12-16
-   * @memberof AuthentificationService
-   */
-  logout() {
-    this._authFservice.auth.signOut().then(res => this._router.navigate(['/']))
+    const provider = new auth.GoogleAuthProvider()
+    return this.oAuthLogin(provider)
   }
 
   /**
@@ -85,6 +70,53 @@ export class AuthentificationService {
    * @memberof AuthentificationService
    */
   public isAuthenticated(): boolean {
-    return !!this._authFservice.authState
+    return this.isAuth
+  }
+
+  /**
+   * @description authentifaction providers
+   * @author dbeetoven
+   * @date 2018-12-23
+   * @private
+   * @param {*} provider
+   * @returns
+   * @memberof AuthentificationService
+   */
+  private oAuthLogin(provider) {
+    return this._afAuth.auth.signInWithPopup(provider).then(credential => {
+      this.updateUserData(credential.user)
+    })
+  }
+
+  /**
+   * @description udapte uer data from firestrom.
+   * @author dbeetoven
+   * @date 2018-12-23
+   * @private
+   * @param {*} user
+   * @returns
+   * @memberof AuthentificationService
+   */
+  private updateUserData(user) {
+    // Sets user data to firestore on login
+    const userRef: AngularFirestoreDocument<User> = this._afs.doc(`users/${user.uid}`)
+
+    const data: User = {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+    }
+
+    return userRef.set(data, { merge: true })
+  }
+  /**
+   * @description logout and then return toa app root.
+   * @author dbeetoven
+   * @date 2018-12-16
+   * @memberof AuthentificationService
+   */
+  logout() {
+    this._afAuth.auth.signOut().then(res => this._router.navigate(['/']))
   }
 }

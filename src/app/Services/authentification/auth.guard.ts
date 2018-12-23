@@ -1,13 +1,18 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
-import { AuthentificationService } from './authentification.service';
+import { Injectable } from '@angular/core'
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Router,
+  RouterStateSnapshot,
+} from '@angular/router'
+import { Observable } from 'rxjs'
+import { map, take, tap } from 'rxjs/operators'
+import { AuthentificationService } from './authentification.service'
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-
   /**
    *Creates an instance of AuthGuard.
    * @author dbeetoven
@@ -17,7 +22,7 @@ export class AuthGuard implements CanActivate {
    * @memberof AuthGuard
    */
   constructor(
-    private _authFService: AuthentificationService,
+    private _authService: AuthentificationService,
     private _router: Router
   ) {}
 
@@ -33,12 +38,16 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<boolean> | Promise<boolean> | boolean {
-    if (this._authFService.isAuthenticated()) {
-      return true
-    }
-
-    this._router.navigate(['/login'])
-    return false
+  ): Observable<boolean> {
+    return this._authService.user.pipe(
+      take(1),
+      map(user => !!user),
+      tap(loggedIn => {
+        if (!loggedIn) {
+          console.log('access denied')
+          this._router.navigate(['/login'])
+        }
+      })
+    )
   }
 }
