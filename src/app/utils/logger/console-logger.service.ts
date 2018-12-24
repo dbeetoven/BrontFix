@@ -22,6 +22,18 @@ export class ConsoleLoggerService implements Logger {
       return noop
     }
   }
+  /**
+   * @description get table console
+   * @readonly
+   * @memberof ConsoleLoggerService
+   */
+  get table() {
+    if (isDebugMode) {
+      return console.table.bind(console)
+    } else {
+      return noop
+    }
+  }
 
   /**
    * @description get console as  warn.

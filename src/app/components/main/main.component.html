@@ -1,185 +1,96 @@
 <ms-layout>
-<section class="pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="height:100vh; background-size: cover; background-image: url(assets/images/img/professions.jpg);">
-  <div class="container-fluid">
-    <div class="row  justify-content-center align-items-center d-flex text-center h-100">
-      <div class="col-12 col-md-8  h-50 ">
-        <h1 class="display-2  text-light mb-2 mt-5">
-          <strong>Brontrix Services</strong>
-        </h1>
-        <p class="lead  text-light mb-5">
-          Sub-heading. Header 100% height with center align items
-        </p>
-        <p>
-          <a [routerLink]="['login']" class="btn bg-primary btn-round text-light btn-lg btn-rised">Login</a>
-        </p>
-
-        <div class="btn-container-wrapper p-relative d-block  zindex-1">
-          <a class="btn btn-link btn-lg   mt-md-3 mb-4 scroll align-self-center text-light" href="http://bootstraptor.com">
-            <i class="fa fa-angle-down fa-4x text-light"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<hr />
-<div class="container">
-  <div class="row">
-    <div class="col-xl-3 col-lg-6">
-      <div class="card card-inverse card-primary ">
-        <div class="card-header">
-          <div class="row">
-            <div class="col col-xs-3"><i class="fa fa-user-o fa-5x"></i></div>
-            <div class="col col-xs-9 text-right">
-              <div class="d-block huge"></div>
-              <div class="d-block">¿Eres un profesional?</div>
-            </div>
+  <header>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/LAaSoL0LrYs/1920x1080')">
+          <div class="carousel-caption d-none d-md-block">
+            <h2 class="display-4">First Slide</h2>
+            <p class="lead">This is a description for the first slide.</p>
           </div>
         </div>
-        <div class="card-footer">
-          <span class="float-left">Registrate</span>
-          <a href="javascript:void(0)" class="float-right card-inverse">
-            <span><i class="fa fa-arrow-circle-right"></i></span>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-3 col-lg-6">
-      <div class="card card-inverse card-primary ">
-        <div class="card-header">
-          <div class="row">
-            <div class="col col-xs-3">
-              <i class="fa fa-cart-plus fa-5x"></i>
-            </div>
-            <div class="col col-xs-9 text-right">
-              <div class="d-block huge"></div>
-              <div class="d-block">Publicar un servicio</div>
-            </div>
+        <!-- Slide Two - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('https://source.unsplash.com/bF2vsubyHcQ/1920x1080')">
+          <div class="carousel-caption d-none d-md-block">
+            <h2 class="display-4">Second Slide</h2>
+            <p class="lead">This is a description for the second slide.</p>
           </div>
         </div>
-        <div class="card-footer">
-          <span class="float-left">publicar</span>
-          <a href="javascript:void(0)" class="float-right card-inverse">
-            <span><i class="fa fa-arrow-circle-right"></i></span>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-3 col-lg-6">
-      <div class="card card-inverse card-primary ">
-        <div class="card-header">
-          <div class="row">
-            <div class="col col-xs-3">
-              <i class="fa fa-commenting-o fa-5x"></i>
-            </div>
-            <div class="col col-xs-9 text-right">
-              <div class="d-block huge"></div>
-              <div class="d-block">Registrate & chatea con el profesional</div>
-            </div>
+        <!-- Slide Three - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('https://source.unsplash.com/szFUQoyvrxM/1920x1080')">
+          <div class="carousel-caption d-none d-md-block">
+            <h2 class="display-4">Third Slide</h2>
+            <p class="lead">This is a description for the third slide.</p>
           </div>
         </div>
-        <div class="card-footer">
-          <span class="float-left">Chatear</span>
-          <a href="javascript:void(0)" class="float-right card-inverse">
-            <span><i class="fa fa-arrow-circle-right"></i></span>
-          </a>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card-counter primary">
+          <i class="fa fa-code-fork"></i>
+          <span class="count-numbers">12</span>
+          <span class="count-name">Publicar</span>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card-counter warn">
+          <i class="fa fa-ticket"></i>
+          <span class="count-numbers">599</span>
+          <span class="count-name">Changas</span>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card-counter success">
+          <i class="fa fa-database"></i>
+          <span class="count-numbers">6875</span>
+          <span class="count-name">Nuevas publicaciones</span>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card-counter info">
+          <i class="fa fa-users"></i>
+          <span class="count-numbers">35</span>
+          <span class="count-name">Foro</span>
         </div>
       </div>
     </div>
-    <div class="col-xl-3 col-lg-6">
-      <div class="card card-inverse card-primary ">
-        <div class="card-header">
-          <div class="row">
-            <div class="col col-xs-3"><i class="fa fa-database fa-5x"></i></div>
-            <div class="col col-xs-9 text-right">
-              <div class="d-block huge"></div>
-              <div class="d-block">Encuentre la solucion a tu problema</div>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <span class="float-left">Buscar</span>
-          <a href="javascript:void(0)" class="float-right card-inverse">
-            <span><i class="fa fa-arrow-circle-right"></i></span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<hr />
-
-<div class="container">
-  <div class="row">
-    <div class="col-lg-4">
-      <img class="rounded-circle" src="/assets/images/img/buscar.jpg" alt="Generic placeholder image" width="140"
-        height="140" />
-      <h2>Publicar un Servicio</h2>
-      <span class="social social-blogger">
-        <strong>Encontra el profesional adecuado para tu servicio</strong>
-      </span>
-      <p>
-        Los mejores profesionales estan pendientes de tus servicios, publica un
-        servicio al la breviedad te contactara un especialista es
-        facil,seguro,rapido, y con los mejores precios.
-      </p>
-      <p>
-        <a class="btn btn-primary" [routerLink]="['/detalle']" role="button">Publicar</a>
-      </p>
-    </div>
-    <!-- /.col-lg-4 -->
-
-    <div class="col-lg-4">
-      <img class="rounded-circle" src="/assets/images/img/perfil.jpg" alt="Generic placeholder image" width="140"
-        height="140" />
-      <h2>Cargar Pelfil</h2>
-      <span class="social social-blogger">
-        <strong>Haz que tu trabajo, llegue en todo el mundo cargue tu perfil</strong>
-      </span>
-      <p>
-        Registrate, sube tu curriculum si sos un profesional calificado. los
-        clientes te buscan asi que sube ya tu curriculum y empieza a vender
-        servicios. nunca mas te va a quedar sin laburo.
-      </p>
-      <p>
-        <a class="btn btn-primary" [routerLink]="['/cliente']" role="button">Cargar</a>
-      </p>
-    </div>
-    <!-- /.col-lg-4 -->
-
-    <div class="col-lg-4">
-      <img class="rounded-circle" src="/assets/images/img/search.jpg" alt="Generic placeholder image" width="140"
-        height="140" />
-      <h2>Buscar Profesional</h2>
-      <span class="social social-blogger">
-        <strong>Encontra el profesional adecuado para tu servicio</strong>
-      </span>
-      <p>
-        Buscar un profesional no era tan facil, con nosotros es cuestion de
-        minutos. Busqueda muy simple, encuentras el perfil de profesional
-        adecuado y lo contratas.
-      </p>
-      <p>
-        <a class="btn btn-primary" [routerLink]="['/detalle']" role="button">Buscar</a>
-      </p>
-    </div>
-    <!-- /.col-lg-4 -->
   </div>
   <hr />
-  <div class="row">
-    <div class="col-xl-3 col-lg-6" *ngFor="let task of tasks">
-      <img class="rounded-circle" src="/assets/images/pic/{{task.imageUrl}}" alt="Generic placeholder image" width="140"
-        height="140" />
-      <h2>{{ task.title }}</h2>
-      <p>{{ task.description }}</p>
-      <p>{{ task.salaryRange }}</p>
-      <p>
-        <button type="button" class="btn btn-outline-info">
-          mas informacion
-        </button>
-      </p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mt-4" *ngFor="let task of tasks">
+        <div class="card profile-card">
+          <div class="card-img-block">
+            <img class="card-img-top" src="/assets/images/pic/{{task.imageUrl}}" alt="{{task.title}}">
+          </div>
+          <div class="card-body pt-0">
+            <h5 class="card-title">{{ task.title }}</h5>
+            <p class="card-text">{{ task.description }}</p>
+            <p class="card-text">costo:&nbsp;{{ task.salaryRange }}</p>
+            <a href="#" class="btn btn-primary">mas Info</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<hr />
+  <hr />
 </ms-layout>

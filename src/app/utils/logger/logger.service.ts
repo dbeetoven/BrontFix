@@ -10,6 +10,7 @@ import { Injectable } from '@angular/core'
  */
 export abstract class Logger {
   info: any
+  table: any
   warn: any
   error: any
 }
@@ -17,6 +18,7 @@ export abstract class Logger {
 @Injectable()
 export class LoggerService implements Logger {
   info: any
+  table: any
   warn: any
   error: any
 

@@ -1,26 +1,40 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark indigo">
-  <a class="navbar-brand" href="#"><strong>Brontrix Services</strong></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="nav navbar-nav ml-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Atencion al cliente <i class="fa fa-users" aria-hidden="true"></i> <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">shop <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-      </li>
-      <li class="nav-item" *ngIf="_authService.user | async; then logged else logout"></li>
-      <ng-template #logout>
-        <a class="nav-link" [routerLink]="['login']" [routerLinkActive]="['active']">Ingresar
-          <i class="fa fa-user" aria-hidden="true"></i></a>
-      </ng-template>
-      <ng-template #logged>
-        <a class="nav-link" [routerLink]="['user']" [routerLinkActive]="['active']" *ngIf="_authService.user | async as user">
-          Howdy, {{ user.displayName }}<i class="fa fa-user" aria-hidden="true"></i></a>
-      </ng-template>
-    </ul>
-  </div>
-</nav>
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark static-top indigo">
+    <div class="container">
+      <!-- <a class="navbar-brand" href="#">
+            <img src="http://placehold.it/150x50?text=Logo" alt="">
+          </a> -->
+      <a class="navbar-brand" href="#"><strong>Brontrix Services</strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Soporte&nbsp;<i class="fa fa-users" aria-hidden="true"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contraciones&nbsp;<i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+          </li>
+          <li class="nav-item" *ngIf="_authService.user | async; then logged else logout"></li>
+          <ng-template #logout>
+            <a class="nav-link" [routerLink]="['login']" [routerLinkActive]="['active']">Ingresar&nbsp;
+              <i class="fa fa-user" aria-hidden="true"></i></a>
+          </ng-template>
+          <ng-template #logged>
+            <a class="nav-link" [routerLink]="['user']" [routerLinkActive]="['active']" *ngIf="_authService.user | async as user">
+              Howdy, {{ user.displayName }}<i class="fa fa-user" aria-hidden="true"></i></a>
+          </ng-template>
+          <li class="nav-item" *ngIf="_authService.user | async">
+              <a class="nav-link" href="#">Cerrar Sesion&nbsp;<i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -15,6 +15,7 @@ import { AuthentificationService } from './Services/authentification/authentific
 import { SharedModule } from './shared/shared.module';
 import { ConsoleLoggerService } from './utils/logger/console-logger.service';
 import { LoggerService } from './utils/logger/logger.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +30,7 @@ import { LoggerService } from './utils/logger/logger.service';
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    ReactiveFormsModule
   ],
   providers: [
     AuthentificationService,
