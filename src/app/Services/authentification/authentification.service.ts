@@ -84,7 +84,7 @@ export class AuthentificationService {
    */
   private oAuthLogin(provider) {
     return this._afAuth.auth.signInWithPopup(provider).then(credential => {
-      this.updateUserData(credential.user)
+      return this.updateUserData(credential.user)
     })
   }
 

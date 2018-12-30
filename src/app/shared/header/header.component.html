@@ -17,22 +17,21 @@
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">Soporte&nbsp;<i class="fa fa-users" aria-hidden="true"></i></a>
+            <a class="nav-link" href="#">Contacto&nbsp;<i class="fa fa-users" aria-hidden="true"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contraciones&nbsp;<i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+            <a class="nav-link" href="#">Servicios&nbsp;<i class="fa fa-tasks" aria-hidden="true"></i></a>
           </li>
           <li class="nav-item" *ngIf="_authService.user | async; then logged else logout"></li>
           <ng-template #logout>
             <a class="nav-link" [routerLink]="['login']" [routerLinkActive]="['active']">Ingresar&nbsp;
-              <i class="fa fa-user" aria-hidden="true"></i></a>
+                <i class="fa fa-sign-in" aria-hidden="true"></i></a>
           </ng-template>
           <ng-template #logged>
-            <a class="nav-link" [routerLink]="['user']" [routerLinkActive]="['active']" *ngIf="_authService.user | async as user">
-              Howdy, {{ user.displayName }}<i class="fa fa-user" aria-hidden="true"></i></a>
+            <!-- <a class="nav-link" [routerLink]="['user']" [routerLinkActive]="['active']" *ngIf="_authService.user | async as user"> -->
+            <!-- Howdy, {{ user.displayName }}<i class="fa fa-user" aria-hidden="true"></i></a> -->
+            <a class="nav-link" href="#">Cerrar Sesion&nbsp;<i class="fa fa-sign-out" aria-hidden="true"></i></a>
           </ng-template>
-          <li class="nav-item" *ngIf="_authService.user | async">
-              <a class="nav-link" href="#">Cerrar Sesion&nbsp;<i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
         </ul>
       </div>
     </div>

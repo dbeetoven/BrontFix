@@ -25,61 +25,85 @@ export class MainComponent implements OnInit {
         'Carpinteria',
         'Los mejores carpinteros estan disponibles para vos de lunes a sabado.',
         '90$ a 150$ /h',
-        'carp1.jpg'
+        'carpinteria.jpg'
       ),
       new Tasks(
-        'Electricista',
+        'Electricidad',
         'Los mejores Electricistas estan disponibles para vos de lunes a sabado.',
         '90$ a 150$ /h',
-        'tecnicos2.jpg'
+        'electricidad.jpg'
       ),
       new Tasks(
-        'Fotografos',
+        'Fotografia',
         'Los mejores Fotografos estan disponibles para vos de lunes a sabado.',
         '90$ a 150$ /h',
-        'limpieza.jpg'
+        'fotografo.jpg'
       ),
       new Tasks(
-        'Gasistas',
+        'Diseño Grafico',
+        'Los mejores Fotografos estan disponibles para vos de lunes a sabado.',
+        '90$ a 150$ /h',
+        'graficos.jpg'
+      ),
+      new Tasks(
+        'Gas',
         'Los mejores Gasistas estan disponibles para vos de lunes a sabado.',
         '90$ a 150$ /h',
-        'imgTEC1.jpg'
+        'gasista.jpg'
       ),
       new Tasks(
-        'Choferes',
+        'Conductores',
         'Los mejores Conductores estan disponibles para vos de lunes a sabado.',
         '90$ a 150$ /h',
-        'electo.jpg'
+        'chofer.jpg'
       ),
       new Tasks(
-        'Pintor',
+        'Pintureria',
         'Los mejores Pintores estan disponibles para vos de lunes a sabado.',
         '90$ a 150$ /h',
-        'fum.jpg'
+        'pintor.jpg'
       ),
       new Tasks(
-        'Artista',
+        'Arte',
         'Los mejores Artitas estan disponibles para vos de lunes a sabado.',
         '90$ a 150$ /h',
-        'plom1.jpg'
+        'artista.jpg'
       ),
       new Tasks(
-        'Mecanicos',
+        'Mecanic',
         'Los mejores Mecanicos estan disponibles para vos de lunes a sabado.',
         '90$ a 150$ /h',
-        'mecanico1.jpg'
+        'mecanico.jpg'
       ),
       new Tasks(
         'Personal de eventos',
         'Los mejores Eventualeros estan disponibles para vos de lunes a sabado.',
         '90$ a 150$ /h',
-        'tec3.jpg'
+        'evento.jpg'
       ),
       new Tasks(
-        'Profesores',
+        'Profesor particular',
         'Los mejores Profesores estan disponibles para vos de lunes a sabado.',
         '90$ a 150$ /h',
-        'class.jpg'
+        'profesor.jpg'
+      ),
+      new Tasks(
+        'Maquillaje',
+        'Los mejores Profesores estan disponibles para vos de lunes a sabado.',
+        '90$ a 150$ /h',
+        'maquillador.jpg'
+      ),
+      new Tasks(
+        'Peluqueria',
+        'Los mejores Profesores estan disponibles para vos de lunes a sabado.',
+        '90$ a 150$ /h',
+        'peluquero.jpg'
+      ),
+      new Tasks(
+        'Limpieza',
+        'Los mejores Profesores estan disponibles para vos de lunes a sabado.',
+        '90$ a 150$ /h',
+        'limpieza.jpg'
       ),
     ]
   }

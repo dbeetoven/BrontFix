@@ -8,24 +8,30 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/LAaSoL0LrYs/1920x1080')">
+        <div class="carousel-item active" style="background-image: url('/assets/images/img/junta.jpg')">
           <div class="carousel-caption d-none d-md-block">
-            <h2 class="display-4">First Slide</h2>
-            <p class="lead">This is a description for the first slide.</p>
+            <!-- <h2 class="display-4">Contactenos </h2>
+            <p class="lead">This is a description for the first slide.</p> -->
           </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('https://source.unsplash.com/bF2vsubyHcQ/1920x1080')">
+        <div class="carousel-item" style="background-image: url('/assets/images/img/reparacion.jpg')">
           <div class="carousel-caption d-none d-md-block">
-            <h2 class="display-4">Second Slide</h2>
-            <p class="lead">This is a description for the second slide.</p>
+            <!-- <h2 class="display-4">Second Slide</h2>
+            <p class="lead">This is a description for the second slide.</p> -->
           </div>
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('https://source.unsplash.com/szFUQoyvrxM/1920x1080')">
+        <div class="carousel-item" style="background-image: url('/assets/images/img/fotografo.jpg')">
           <div class="carousel-caption d-none d-md-block">
-            <h2 class="display-4">Third Slide</h2>
-            <p class="lead">This is a description for the third slide.</p>
+            <!-- <h2 class="display-4">Third Slide</h2>
+            <p class="lead">This is a description for the third slide.</p> -->
+          </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('/assets/images/img/grafico.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <!-- <h2 class="display-4">Third Slide</h2>
+            <p class="lead">This is a description for the third slide.</p> -->
           </div>
         </div>
       </div>
@@ -43,7 +49,7 @@
     <div class="row">
       <div class="col-md-3">
         <div class="card-counter primary">
-          <i class="fa fa-code-fork"></i>
+          <i class="fa fa-plus"></i>
           <span class="count-numbers">12</span>
           <span class="count-name">Publicar</span>
         </div>
@@ -51,7 +57,7 @@
 
       <div class="col-md-3">
         <div class="card-counter warn">
-          <i class="fa fa-ticket"></i>
+          <i class="fa fa-briefcase"></i>
           <span class="count-numbers">599</span>
           <span class="count-name">Changas</span>
         </div>
@@ -61,26 +67,33 @@
         <div class="card-counter success">
           <i class="fa fa-database"></i>
           <span class="count-numbers">6875</span>
-          <span class="count-name">Nuevas publicaciones</span>
+          <span class="count-name">Publicaciones</span>
         </div>
       </div>
 
       <div class="col-md-3">
         <div class="card-counter info">
           <i class="fa fa-users"></i>
-          <span class="count-numbers">35</span>
+          <span class="count-numbers">89</span>
           <span class="count-name">Foro</span>
         </div>
       </div>
     </div>
   </div>
   <hr />
+  <!-- <div class="container">
+    <div class="row">
+      <div class="alert alert-light text-center" role="alert" class="col-md-12">
+        <h1 style="">Nuestros Servicios</h1>
+      </div>
+    </div>
+  </div> -->
   <div class="container">
     <div class="row">
       <div class="col-md-4 mt-4" *ngFor="let task of tasks">
         <div class="card profile-card">
           <div class="card-img-block">
-            <img class="card-img-top" src="/assets/images/pic/{{task.imageUrl}}" alt="{{task.title}}">
+            <img class="card-img-top" src="/assets/images/profession/{{task.imageUrl}}" alt="{{task.title}}">
           </div>
           <div class="card-body pt-0">
             <h5 class="card-title">{{ task.title }}</h5>
