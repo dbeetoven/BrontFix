@@ -1,6 +1,17 @@
 {
   "compilerOptions": {
     "baseUrl": "",
+    "paths": {
+      "@app/*": ["app/*"],
+      "@env/*": ["environments/*"],
+      "@services/*": ["app/Services/*"],
+      "@classes/*": ["app/classes/*"],
+      "@components/*": ["app/components/*"],
+      "@pipe/*": ["app/pipe/*"],
+      "@utils/*": ["app/utils/*"],
+      "@shared/*": ["app/shared/*"],
+      "@directive/*": ["app/directive/*"]
+    },
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,

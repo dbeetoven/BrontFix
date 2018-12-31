@@ -1,12 +1,15 @@
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Router } from '@angular/router';
-import { User } from 'app/classes/mappers/user';
-import { LoggerService } from 'app/utils/logger/logger.service';
-import { auth } from 'firebase';
-import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { Injectable } from '@angular/core'
+import { AngularFireAuth } from '@angular/fire/auth'
+import {
+  AngularFirestore,
+  AngularFirestoreDocument,
+} from '@angular/fire/firestore'
+import { Router } from '@angular/router'
+import { User } from '@app/classes/mappers/user'
+import { LoggerService } from '@app/utils/logger/logger.service'
+import { auth } from 'firebase/app'
+import { Observable, of } from 'rxjs'
+import { switchMap } from 'rxjs/operators'
 
 /**
  * @description Authentification service class.
@@ -48,9 +51,53 @@ export class AuthentificationService {
         }
       })
     )
-    this._logger.info(this.user);
   }
 
+  /**
+   * @description crete new user with email & password
+   * @author dbeetoven
+   * @date 2018-12-30
+   * @param {*} value
+   * @returns
+   * @memberof AuthentificationService
+   */
+  signUp(value) {
+    return new Promise<any>((resolve, reject) => {
+      this._afAuth.auth
+        .createUserWithEmailAndPassword(value.email, value.password)
+        .then(
+          res => {
+            resolve(res)
+          },
+          err => reject(err)
+        )
+    })
+  }
+
+  /**
+   * @description login with email& password
+   * @author dbeetoven
+   * @date 2018-12-30
+   * @param {*} value
+   * @returns
+   * @memberof AuthentificationService
+   */
+  login(value) {
+    return new Promise<any>((resolve, reject) => {
+      this._afAuth.auth
+        .signInWithEmailAndPassword(value.email, value.password)
+        .then(
+          credential => {
+            this.updateUserData(credential.user).then(user => {
+              this._logger.info(user)
+              resolve(user)
+            })
+            // resolve(res)
+          },
+          err => reject(err)
+        )
+    })
+  }
   /**
    * @description login with google firebase Auth.
    * @author dbeetoven
@@ -84,7 +131,7 @@ export class AuthentificationService {
    */
   private oAuthLogin(provider) {
     return this._afAuth.auth.signInWithPopup(provider).then(credential => {
-      return this.updateUserData(credential.user)
+      this.updateUserData(credential.user)
     })
   }
 
@@ -99,7 +146,9 @@ export class AuthentificationService {
    */
   private updateUserData(user) {
     // Sets user data to firestore on login
-    const userRef: AngularFirestoreDocument<User> = this._afs.doc(`users/${user.uid}`)
+    const userRef: AngularFirestoreDocument<User> = this._afs.doc(
+      `users/${user.uid}`
+    )
 
     const data: User = {
       uid: user.uid,
@@ -116,7 +165,7 @@ export class AuthentificationService {
    * @date 2018-12-16
    * @memberof AuthentificationService
    */
-  logout() {
-    this._afAuth.auth.signOut().then(res => this._router.navigate(['/']))
+  public async logout() {
+    return await this._afAuth.auth.signOut()
   }
 }

@@ -1,0 +1,41 @@
+<<div id="sidebar">
+  <mat-nav-list>
+    <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/dashboard']">
+      <mat-icon class="sidenav-icon">domain</mat-icon>Pagina Principal
+    </a>
+    <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/charts']">
+      <mat-icon class="sidenav-icon">people</mat-icon> Profesionales
+    </a>
+    <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/tables']">
+      <mat-icon class="sidenav-icon">storage</mat-icon> Changas
+    </a>
+    <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/forms']">
+      <mat-icon class="sidenav-icon">forum</mat-icon> Foro
+    </a>
+    <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/grid']">
+      <mat-icon class="sidenav-icon">grid_on</mat-icon>Jobs
+    </a>
+    <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/components']">
+      <mat-icon class="sidenav-icon">insert_chart_outline</mat-icon> Publicar
+    </a>
+    <!-- <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/blank-page']">
+      <mat-icon class="sidenav-icon">insert_drive_file</mat-icon> Blank Page
+    </a> -->
+    <!-- <div class="nested-menu">
+      <a mat-list-item (click)="addExpandClass('pages')">
+        <mat-icon class="sidenav-icon">add</mat-icon> Menu
+      </a>
+      <ul class="nested submenu" [class.expand]="showMenu === 'pages'">
+        <li>
+          <a href="javascript:void(0)"><span>Submenu</span></a>
+        </li>
+        <li>
+          <a href="javascript:void(0)"><span>Submenu</span></a>
+        </li>
+        <li>
+          <a href="javascript:void(0)"><span>Submenu</span></a>
+        </li>
+      </ul>
+    </div> -->
+  </mat-nav-list>
+  </div>

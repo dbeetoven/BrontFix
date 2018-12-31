@@ -1,0 +1,14 @@
+<form [formGroup]="form" (ngSubmit)="send(form.value)" novalidate>
+  <h1 style="text-align:center">Brontrix Contacto</h1>
+
+  <input placeholder="Nombre" type="text" formControlName="name" required>
+  <input placeholder="Correo Electronico" type="email" formControlName="email" required>
+  <input placeholder="Telefono" type="tel" required formControlName="mobile">
+
+  <div class="flex">
+    <textarea placeholder="Message" rows="4" required formControlName="message"></textarea>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Send</button>
+</form>
+

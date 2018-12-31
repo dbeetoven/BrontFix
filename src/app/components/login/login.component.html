@@ -1,33 +1,50 @@
-<div class="LoginForm">
-  <div class="container">
-    <div class="login-form">
-      <!-- <h1 class="form-heading">theres is logo place</h1> -->
-      <div class="main-div">
-        <div class="panel">
-          <h2>Brontrix Services</h2>
-          <p>Iniciar sesion</p>
-        </div>
-        <form id="Login">
-          <div class="form-group">
-            <input type="email" class="form-control" id="inputEmail" placeholder="Usuario/Correo">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-          </div>
-          <div class="forgot">
-            <a href="#">Haz olvidado tu contrasena?</a>
-          </div>
-          <button type="submit" class="btn btn-primary">Ingresar</button>
-          <div class="flex-c p-b-112">
-            <a href="#" class="login100-social-item">
-              <i class="fa fa-facebook-f"></i>
-            </a>
-            <a (click)="googleLogin()" class="login100-social-item">
-              <img src="/assets/icons/icon-google.png" alt="GOOGLE">
-            </a>
-          </div>
-        </form>
+<div class="login-page">
+  <div class="content">
+    <form [formGroup]="form" (ngSubmit)="login(form.value)" class="login-form" fxFlex novalidate>
+      <div class="text-center">
+        <h2 class="app-name">Brontrix Services</h2>
       </div>
-    </div>
+      <div fxFlex fxlayout="row" fxlayout.lt-md="column">
+        <div fxFlexFill>
+          <mat-form-field class="w-100">
+            <input matInput required type="email" placeholder="Correo" formControlName="email">
+            <mat-error *ngIf="!form.get('email').valid && form.get('email').touched">
+              Correo incorrecto.
+            </mat-error>
+          </mat-form-field>
+
+        </div>
+      </div>
+      <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+        <div fxFlexFill>
+          <mat-form-field class="w-100">
+            <input matInput type="password" required placeholder="Password" formControlName="password">
+            <mat-error *ngIf="!form.get('password').valid && form.get('password').touched">
+              Contraseña incorrecta.
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div fxFlex fxLayout="row" fxLayout.lt-md="column" style="margin: 20px 0 30px 0">
+        <div fxFlex>
+          <mat-checkbox color="primary">Recordarme</mat-checkbox>
+        </div>
+        <div fxFlex fxLayoutAlign="end">
+          <a href="javascript:void(0)">Haz olvidado tu contraseña?</a>
+        </div>
+      </div>
+      <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+        <div fxFlexFill>
+          <button mat-raised-button color="primary" class="w-100" matTooltip="Iniciar sesion" type="submit" [disabled]="form.invalid">Ingresar</button>
+        </div>
+      </div>
+      <div fxFlex fxLayout="row" fxLayout.lt-md="column">
+        <div fxFlexFill>
+          <button mat-raised-button color="warn" class="w-100" (click)="googleLogin()">
+            Google<mat-icon>account_circle</mat-icon>
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
 </div>

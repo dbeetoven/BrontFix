@@ -1,0 +1,37 @@
+<mat-toolbar color="primary" class="fix-nav">
+  <button type="button" mat-icon-button class="visible-md" (click)="toggleSidebar()">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <div class="nav-brand">
+    Brontrix Services
+  </div>
+  <form class="hidden-sm" style="margin-left: 20px; margin-top: 5px">
+    <mat-form-field>
+      <input matInput [placeholder]="'Buscar'">
+    </mat-form-field>
+  </form>
+  <span class="nav-spacer"></span>
+  <button class="hidden-sm" mat-icon-button matTooltip="Atención al cliente">
+    <mat-icon>contact_phone</mat-icon>
+</button>
+  <button class="hidden-sm" mat-icon-button [matMenuTriggerFor]="profile" matTooltip="Perfil">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #profile="matMenu">
+    <button mat-menu-item>
+      <mat-icon>person</mat-icon>
+      <span>Perfil</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>inbox</mat-icon>
+      <span>Mensajes</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>settings</mat-icon>
+      <span>Configuración</span>
+    </button>
+  </mat-menu>
+  <button mat-icon-button (click)="onLoggedout()" matTooltip="Cerrar Session">
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
