@@ -1,6 +1,6 @@
 ## Brontrix Services
 
-# Shop Services 2016 B.A
+# Brontrix Services 2016 B.A
 ## Angular 7  aplicaction Front End Brontrix Serivices
 
  Shop service.
