@@ -1,0 +1,35 @@
+$primary: #000639;
+/*Profile Card 5*/
+.profile-card{
+  margin-top:20px;
+}
+.profile-card .btn{
+  border-radius:2px;
+  text-transform:uppercase;
+  font-size:12px;
+  padding:7px 20px;
+}
+.profile-card .card-img-block {
+  width: 91%;
+  margin: 0 auto;
+  position: relative;
+  top: -20px;
+
+}
+.profile-card.card-img-block img{
+  border-radius:5px;
+  box-shadow:0 0 10px rgba(0,0,0,0.63);
+}
+.profile-card h5{
+  color: #000639;
+  font-weight:600;
+}
+.profile-card p{
+  font-size:14px;
+  font-weight:300;
+}
+.profile-card .btn-primary{
+  background-color: #000639;
+  border-color: #000639;
+
+}

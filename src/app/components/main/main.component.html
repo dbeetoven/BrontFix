@@ -1,0 +1,109 @@
+<ms-layout>
+  <header>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <div class="carousel-item active" style="background-image: url('/assets/images/img/junta.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <!-- <h2 class="display-4">Contactenos </h2>
+            <p class="lead">This is a description for the first slide.</p> -->
+          </div>
+        </div>
+        <!-- Slide Two - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('/assets/images/img/reparacion.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <!-- <h2 class="display-4">Second Slide</h2>
+            <p class="lead">This is a description for the second slide.</p> -->
+          </div>
+        </div>
+        <!-- Slide Three - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('/assets/images/img/fotografo.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <!-- <h2 class="display-4">Third Slide</h2>
+            <p class="lead">This is a description for the third slide.</p> -->
+          </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('/assets/images/img/grafico.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <!-- <h2 class="display-4">Third Slide</h2>
+            <p class="lead">This is a description for the third slide.</p> -->
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card-counter primary">
+          <i class="fa fa-plus"></i>
+          <span class="count-numbers">12</span>
+          <span class="count-name">Publicar</span>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card-counter warn">
+          <i class="fa fa-briefcase"></i>
+          <span class="count-numbers">599</span>
+          <span class="count-name">Changas</span>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card-counter success">
+          <i class="fa fa-database"></i>
+          <span class="count-numbers">6875</span>
+          <span class="count-name">Publicaciones</span>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card-counter info">
+          <i class="fa fa-users"></i>
+          <span class="count-numbers">89</span>
+          <span class="count-name">Foro</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <!-- <div class="container">
+    <div class="row">
+      <div class="alert alert-light text-center" role="alert" class="col-md-12">
+        <h1 style="">Nuestros Servicios</h1>
+      </div>
+    </div>
+  </div> -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mt-4" *ngFor="let task of tas">
+        <div class="card profile-card">
+          <div class="card-img-block">
+            <img class="card-img-top" src="/assets/images/profession/{{task.imageUrl}}" alt="{{task.title}}">
+          </div>
+          <div class="card-body pt-0">
+            <h5 class="card-title">{{ task.title }}</h5>
+            <p class="card-text">{{ task.description }}</p>
+            <p class="card-text">costo:&nbsp;{{ task.salaryRange }}</p>
+            <a href="#" class="btn btn-primary">mas Info</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+</ms-layout>
