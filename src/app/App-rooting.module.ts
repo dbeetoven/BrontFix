@@ -6,8 +6,12 @@ import { PreloadstrategyService } from './preloadstrategy.service.'
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './components/main/main.module#MainModule',
+    redirectTo: 'main',
     pathMatch: 'full',
+  },
+  {
+    path: 'main',
+    loadChildren: './components/main/main.module#MainModule',
     data: { preload: true },
   },
   {
