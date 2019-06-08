@@ -11,37 +11,37 @@ const routes: Routes = [
   },
   {
     path: 'main',
-    loadChildren: './components/main/main.module#MainModule',
+    loadChildren: () => import('./components/main/main.module').then(m => m.MainModule),
     data: { preload: true },
   },
   {
     path: 'login',
-    loadChildren: './components/login/login.module#LoginModule',
+    loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule),
     data: { preload: true },
   },
   {
     path: 'servicios',
-    loadChildren: './core/core.module#CoreModule',
+    loadChildren: () => import('./core/core.module').then(m => m.CoreModule),
     data: { preload: true },
   },
   {
     path: 'contacto',
-    loadChildren: './components/contact/contact.module#ContactModule',
+    loadChildren: () => import('./components/contact/contact.module').then(m => m.ContactModule),
     data: { preload: false },
   },
   {
     path: 'signup',
-    loadChildren: './components/signup/signup.module#SignupModule',
+    loadChildren: () => import('./components/signup/signup.module').then(m => m.SignupModule),
     data: { preload: false },
   },
   {
     path: 'user',
-    loadChildren: './components/customer/customer.module#CustomerModule',
+    loadChildren: () => import('./components/customer/customer.module').then(m => m.CustomerModule),
     canActivate: [AuthGuard],
   },
   {
     path: 'not-found',
-    loadChildren: './components/notfound/notfound.module#NotfoundModule',
+    loadChildren: () => import('./components/notfound/notfound.module').then(m => m.NotfoundModule),
   },
   {
     path: '**',
