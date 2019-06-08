@@ -5,11 +5,12 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/firestore'
 import { Router } from '@angular/router'
-import { User } from '@app/classes/mappers/user'
+
 import { LoggerService } from '@app/utils/logger/logger.service'
 import { auth } from 'firebase/app'
 import { Observable, of } from 'rxjs'
 import { switchMap, map } from 'rxjs/operators'
+import { User } from '@app/models/classes/mappers/user';
 
 /**
  * @description Authentification service class.

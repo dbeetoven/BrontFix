@@ -47,7 +47,7 @@ import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/materi
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     LoadingBarRouterModule,
     LoadingBarHttpClientModule,
-    LoadingBarModule.forRoot(),
+    LoadingBarModule,
   ],
   providers: [
     AuthentificationService,

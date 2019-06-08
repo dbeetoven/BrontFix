@@ -1,39 +1,34 @@
-import { Component, OnInit } from '@angular/core'
-import { Tasks, TasksInterface } from 'app/classes/mappers/tasks'
-import { LoggerService } from '@app/utils/logger/logger.service'
-import { FirestoreService } from '@app/Services/firestore.service'
-import { finalize } from 'rxjs/operators'
-import { Observable } from 'rxjs'
+import { Component, OnInit } from '@angular/core';
+import { FirestoreService } from '@app/Services/firestore.service';
+import { LoggerService } from '@app/utils/logger/logger.service';
+import { Tasks, TasksInterface } from '@app/models/classes/mappers/tasks';
 
 @Component({
   selector: 'ms-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss'],
+  styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  protected tasks: Tasks[]
-  protected tas: any
-  constructor(
-    private _logger: LoggerService,
-    private _firestore: FirestoreService
-  ) {}
+  protected tasks: Tasks[];
+  protected tas: any;
+  constructor(private _logger: LoggerService, private _firestore: FirestoreService) {}
   getTasks() {
     // no backend services for tasks, i use a mock.
     // but there is the place to get all tasks.
     this._firestore.get('tasks').subscribe(
       tasks => {
-        this._logger.info(tasks)
-        this.tas = tasks
+        this._logger.info(tasks);
+        this.tas = tasks;
       },
       err => {
-        this._logger.error(err)
+        this._logger.error(err);
       }
-    )
+    );
   }
 
   set() {
     this.tasks.forEach(task => {
-      this._logger.info(task)
+      this._logger.info(task);
       const data: TasksInterface = {
         id: Math.random()
           .toString(36)
@@ -44,18 +39,18 @@ export class MainComponent implements OnInit {
         salaryRange: task.salaryRange,
         lastModidyDate: new Date().getTimezoneOffset().toLocaleString(),
         imageUrl: task.imageUrl,
-        createdDate: new Date().toISOString(),
-      }
+        createdDate: new Date().toISOString()
+      };
       this._firestore
         .post('tasks', data)
         .then(res => this._logger.info(`Saved: ${res.id}`))
         .catch(err => {
-          this._logger.error(err)
-        })
-    })
+          this._logger.error(err);
+        });
+    });
   }
   ngOnInit() {
-    this.getTasks()
+    this.getTasks();
     this.tasks = [
       new Tasks(
         'Plomeria',
@@ -146,19 +141,19 @@ export class MainComponent implements OnInit {
         'Los mejores Profesores estan disponibles para vos de lunes a sabado.',
         '90$ a 150$ /h',
         'limpieza.jpg'
-      ),
-    ]
+      )
+    ];
   }
 
   moreInfo(event, task: Tasks) {
-    this._logger.info(`Profession selected is : ${task.title}`)
-    const file = event.target.files[0]
-    const result = this._firestore.upload(file, task)
+    this._logger.info(`Profession selected is : ${task.title}`);
+    const file = event.target.files[0];
+    const result = this._firestore.upload(file, task);
   }
 
   async upload(event, task: Tasks) {
-    this._logger.info(`Profession selected is : ${task.title}`)
-    const file = event.target.files[0]
-    return await this._firestore.upload(file, task)
+    this._logger.info(`Profession selected is : ${task.title}`);
+    const file = event.target.files[0];
+    return await this._firestore.upload(file, task);
   }
 }

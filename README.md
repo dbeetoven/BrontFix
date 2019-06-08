@@ -1,12 +1,10 @@
-## Brontrix Services
+## Brontrix SA
 
 # Brontrix Services 2016 B.A
-## Angular 7  aplicaction Front End Brontrix Serivices
-
- Shop service.
+## Front End Brontrix Apps de servicios para hogar.
 
 
 @Authors and collaborators
-@Beetoven / beetovenson@gmail.com 
+@Beetoven / beetovenson@gmail.com
 
 @Buenos aires / Argentina
